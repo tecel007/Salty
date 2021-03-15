@@ -12,7 +12,7 @@ All script, net and sync events and natives are logged in csv format.
 
 - model crashes
 - sync/ack events - invalid owner
-- sync/ack events - invalid object id - objects you dont own - or nor existant
+- sync/ack events - invalid object id - objects you dont own - or non existant
 - sync/ack events - invalid time random or backwards in time
 - sync events - wrong synctree type - sending boat sync trees to car
 - sync create - invalid object type
