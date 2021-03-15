@@ -23,8 +23,8 @@ Logger.cpp readsis a configurable logging system for GTAV natives.  It reads nat
 - creating too many objects in your bubble_id
 - sync_buffer_read overflow AND underflow
 - invalid sync time
-- total random garbage in the datbitbuffer
-- exceptioncatch all handling on all hooks
+- garbage in the datbitbuffer
+- exception catch all handling on all hooks
 - bad datbitbuffer crash signatures
 - bad script events
 - flooding / bad net events
