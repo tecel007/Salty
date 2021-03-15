@@ -84,5 +84,3 @@ Previously 100% protected from
 ## Contact
 
 - tecel007#9031 (discord)
-- WhatAJoke (GTAV)
-- tecel007 (GTAV)
