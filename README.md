@@ -29,6 +29,14 @@ Logger.cpp readsis a configurable logging system for GTAV natives.  It reads nat
 - bad script events
 - flooding / bad net events
 
+## Menus
+
+- Luna
+- Impulse
+- Disturbed
+- Paragon
+- PhantomX
+
 ## Hooks
 
 - functions::buffer_int_t m_buffer_int{};
