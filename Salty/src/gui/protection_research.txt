@@ -1,0 +1,1035 @@
+***** FATAL EXCEPTION RECEIVED ******* 																		
+	CODE	EXCEPTION_BREAKPOINT
+	
+	RIP	GTA5.exe+0x12BFDB3
+	
+	7FF61D6E0000
+
+	7FF61E99FDB3
+
+194586738, 0xB992872, as that is ERR_NET_ARRAY
+
+48 89 5C 24 ? 55 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? 33 FF 48 8B DA
+
+"Array handler does not exist(Type %d, ID %s)"
+
+GTA5.exe+165CB80 - 48 89 5C 24 08        - mov [rsp+08],rbx
+GTA5.exe+165CEE5 - 90                    - nop
+GTA5.exe+165CF03 - E9 76FFFFFF           - jmp GTA5.exe+165CE7E
+
+
+
+
+
+https://www.unknowncheats.me/forum/grand-theft-auto-v/144028-grand-theft-auto-reversal-structs-offsets-502.html#post3038390
+https://www.unknowncheats.me/forum/grand-theft-auto-v/414258-anti-version-mismatch-crash.html
+
+Code:
+48 8B EC 48 83 EC 30 48 8B 05 ? ? ? ? 48 8B D9 49
+This sig lands you in a function that they trigger.
+Look for the function call with 194586738, 0xB992872, as that is ERR_NET_ARRAY, and it causes your game to quit. Best of luck 
+
+Originally Posted by Sainan View Post
+Does anyone know how not to make vehicles die in water?
+You can loop VEHICLE::SET_VEHICLE_ENGINE_ON but the vehicle will still die once you get out of it
+
+The Session Types:
+Code:
+{0,"Join Public Session"},
+{1,"New Public Session"},
+{2,"Closed Crew Session"},
+{3,"Crew Session"},
+{6,"Closed Friend Session"},
+{9,"Find Friend Session"},
+{10,"Solo Session"},
+{11,"Invite Only Session"},
+{12,"Join Crew Session"},
+{-1, "Leave GTA Online"},
+If you want to leave GTA:O then do the following:
+Code:
+*script_global(1312443).at(2).as<int*>() = -1;
+//Instead of:
+*script_global(1312854).as<int*>() = TheSessionID;
+//Then Proceed as per usual
+
+ON_ENTER_SP
+ON_ENTER_MP
+
+x64dbg -> dump -> IDA
+
+https://github.com/Maestro-1337/GTA-V-1.52-Crossmap/blob/master/Crossmap.h
+https://github.com/alloc8or/gta5-nativedb-data
+
+handling_data = {
+{"Vehicle Missile Lock Range","[[[[WorldPTR]+8]+10D8]+70]+288"},
+{"Vehicle Lock Time","[[[[[WorldPTR]+8]+10D8]+70]+60]+178"},
+{"Vehicle Missile Spd","[[[[[WorldPTR]+8]+10D8]+70]+60]+58"},
+{"Flying Speed","[[[[WorldPTR]+8]+D28]+938]+338"},
+{"Acceleration","[[[[WorldPTR]+8]+D28]+938]+4C"},
+{"Boost Multiplier Speed","[[[[WorldPTR]+8]+D28]+938]+120"},
+{"Boost Fuel Level","[[[WorldPTR]+8]+D28]+322"},
+{"Off Road Traction","[[[[WorldPTR]+8]+D28]+938]+B8"},
+{"Submarsible Mult","[[[[WorldPTR]+8]+D28]+938]+358"},
+{"Traction Curve Min","[[[[WorldPTR]+8]+D28]+938]+90"},
+{"Traction Curve Max","[[[[WorldPTR]+8]+D28]+938]+88"},
+{"Dirt Level","[[[WorldPTR]+8]+D28]+9F8"},
+{"Brake Force","[[[[WorldPTR]+8]+D28]+938]+6C"},
+{"Handbrake Force","[[[[WorldPTR]+8]+D28]+938]+7C"},
+{"Suspension Height","[[[[WorldPTR]+8]+D28]+938]+D0"},
+{"Suspension Force","[[[[WorldPTR]+8]+D28]+938]+BC"},
+{"Gravity","[[[WorldPTR]+8]+D28]+C5C"},
+{"Helicopter Rotor 1","[[[WorldPTR]+8]+D28]+1AF0"},
+{"Helicopter Rotor 3","[[[WorldPTR]+8]+D28]+1AF8"},
+{"Helicopter Rotor Speed","[[[WorldPTR]+8]+D28]+1AE4"},
+{"Plane Rotor 1","[[[WorldPTR]+8]+D28]+1CDC"},
+{"Plane Rotor 2","[[[WorldPTR]+8]+D28]+1CE0"},
+{"Plane Rotor 3","[[[WorldPTR]+8]+D28]+1CE4"},
+{"Plane Rotor 4","[[[WorldPTR]+8]+D28]+1CE8"},
+{"Plane Rotor Speed","[[[WorldPTR]+8]+D28]+1F54"},
+{"Boost","[[[WorldPTR]+8]+D28]+320"}
+}
+
+.rdata:00007FF6C593E258 ; class CGameInvite: rage::netGamePresenceEvent;   (#classinformer)
+.rdata:00007FF6C593E258                 dq offset ??_R4CGameInvite@@6B@ ; const CGameInvite::`RTTI Complete Object Locator'
+.rdata:00007FF6C593E260 ; const CGameInvite::`vftable'
+.rdata:00007FF6C593E260 ??_7CGameInvite@@6B@ dq offset sub_7FF6C4FC2E34
+.rdata:00007FF6C593E260                                         ; DATA XREF: sub_7FF6C4FBF260+18?o
+.rdata:00007FF6C593E260                                         ; sub_7FF6C4FBF348+1C?o ...
+.rdata:00007FF6C593E268                 dq 7FF6C4FDBA1Ch
+.rdata:00007FF6C593E270                 dq offset CGameInvite0
+.rdata:00007FF6C593E278                 dq offset CGameInvite1
+.rdata:00007FF6C593E280                 dq offset CGameInvite2
+.rdata:00007FF6C593E288                 dq offset CGameInvite3
+.rdata:00007FF6C593E290 aGinv           db 'ginv',0             ; DATA XREF: CGameInvite0?o
+.rdata:00007FF6C593E290                                         ; sub_7FF6C4FF197C+37D?o
+.rdata:00007FF6C593E295                 align 8
+.rdata:00007FF6C593E298
+.rdata:00007FF6C593E298 ; class CGameInviteCancel: rage::netGamePresenceEvent;   (#classinformer)
+.rdata:00007FF6C593E298                 dq offset ??_R4CGameInviteCancel@@6B@ ; const CGameInviteCancel::`RTTI Complete Object Locator'
+.rdata:00007FF6C593E2A0 ; const CGameInviteCancel::`vftable'
+.rdata:00007FF6C593E2A0 ??_7CGameInviteCancel@@6B@ dq offset sub_7FF6C4FC2E34
+.rdata:00007FF6C593E2A0                                         ; DATA XREF: sub_7FF6C4FBF554+19?o
+.rdata:00007FF6C593E2A0                                         ; sub_7FF6C4FF197C+3A7?o ...
+.rdata:00007FF6C593E2A8                 dq offset sub_7FF6C4FDBA1C
+.rdata:00007FF6C593E2B0                 dq offset sub_7FF6C4FD5E6C
+.rdata:00007FF6C593E2B8                 dq offset sub_7FF6C4FF64F8
+.rdata:00007FF6C593E2C0                 dq offset sub_7FF6C4FCCC48
+.rdata:00007FF6C593E2C8                 dq offset sub_7FF6C4FC57D0
+.rdata:00007FF6C593E2D0 aGinvc          db 'ginvc',0            ; DATA XREF: sub_7FF6C4FD5E6C?o
+.rdata:00007FF6C593E2D0                                         ; sub_7FF6C4FF197C+3F8?o
+.rdata:00007FF6C593E2D6                 align 8
+.rdata:00007FF6C593E2D8
+.rdata:00007FF6C593E2D8 ; class CGameInviteReply: rage::netGamePresenceEvent;   (#classinformer)
+.rdata:00007FF6C593E2D8                 dq offset ??_R4CGameInviteReply@@6B@ ; const CGameInviteReply::`RTTI Complete Object Locator'
+.rdata:00007FF6C593E2E0 ; const CGameInviteReply::`vftable'
+.rdata:00007FF6C593E2E0 ??_7CGameInviteReply@@6B@ dq offset sub_7FF6C4FC2E34
+.rdata:00007FF6C593E2E0                                         ; DATA XREF: sub_7FF6C4FF197C+422?o
+.rdata:00007FF6C593E2E0                                         ; sub_7FF6C4FFB3C8+3F?o ...
+.rdata:00007FF6C593E2E8                 dq offset sub_7FF6C4FDBA1C
+.rdata:00007FF6C593E2F0                 dq offset sub_7FF6C4FD5E74
+.rdata:00007FF6C593E2F8                 dq offset sub_7FF6C4FF6570
+.rdata:00007FF6C593E300                 dq offset sub_7FF6C4FCCCE4
+.rdata:00007FF6C593E308                 dq offset sub_7FF6C4FC57F0
+.rdata:00007FF6C593E310 aGrep           db 'grep',0             ; DATA XREF: sub_7FF6C4FD5E74?o
+.rdata:00007FF6C593E310                                         ; sub_7FF6C4FF197C+485?o
+.rdata:00007FF6C593E315                 align 8
+.rdata:00007FF6C593E318
+.rdata:00007FF6C593E318 ; class CTournamentInvite: rage::netGamePresenceEvent;   (#classinformer)
+.rdata:00007FF6C593E318                 dq offset ??_R4CTournamentInvite@@6B@ ; const CTournamentInvite::`RTTI Complete Object Locator'
+.rdata:00007FF6C593E320 ; const CTournamentInvite::`vftable'
+.rdata:00007FF6C593E320 ??_7CTournamentInvite@@6B@ dq offset sub_7FF6C4FC2E34
+.rdata:00007FF6C593E320                                         ; DATA XREF: sub_7FF6C4FC0BB4+F?o
+.rdata:00007FF6C593E320                                         ; .data:off_7FF6C682B780?o
+.rdata:00007FF6C593E328                 dq offset sub_7FF6C4FDBA1C
+.rdata:00007FF6C593E330                 dq offset sub_7FF6C4FD5EC4
+.rdata:00007FF6C593E338                 dq offset sub_7FF6C4FF6C7C
+.rdata:00007FF6C593E340                 dq offset sub_7FF6C4FCD5D8
+.rdata:00007FF6C593E348                 dq offset sub_7FF6C4FC5BD8
+.rdata:00007FF6C593E350 aTinv           db 'tinv',0             ; DATA XREF: sub_7FF6C4FD5EC4?o
+.rdata:00007FF6C593E350                                         ; sub_7FF6C4FF197C+4CE?o
+.rdata:00007FF6C593E355                 align 8
+.rdata:00007FF6C593E358
+.rdata:00007FF6C593E358 ; class CFollowInvite: rage::netGamePresenceEvent;   (#classinformer)
+.rdata:00007FF6C593E358                 dq offset ??_R4CFollowInvite@@6B@ ; const CFollowInvite::`RTTI Complete Object Locator'
+.rdata:00007FF6C593E360 ; const CFollowInvite::`vftable'
+.rdata:00007FF6C593E360 ??_7CFollowInvite@@6B@ dq offset sub_7FF6C4FC2E34
+.rdata:00007FF6C593E360                                         ; DATA XREF: sub_7FF6C4FBF188+19?o
+.rdata:00007FF6C593E360                                         ; sub_7FF6C4FF197C+4F8?o ...
+.rdata:00007FF6C593E368                 dq offset sub_7FF6C4FDBA1C
+.rdata:00007FF6C593E370                 dq offset sub_7FF6C4FD5E3C
+.rdata:00007FF6C593E378                 dq offset sub_7FF6C4FF6108
+.rdata:00007FF6C593E380                 dq offset sub_7FF6C4FCC7CC
+.rdata:00007FF6C593E388                 dq offset sub_7FF6C4FC5448
+.rdata:00007FF6C593E390 aFinv           db 'finv',0             ; DATA XREF: sub_7FF6C4FD5E3C?o
+.rdata:00007FF6C593E390                                         ; sub_7FF6C4FF197C+549?o
+.rdata:00007FF6C593E395                 align 8
+.rdata:00007FF6C593E398
+.rdata:00007FF6C593E398 ; class CAdminInvite: rage::netGamePresenceEvent;   (#classinformer)
+.rdata:00007FF6C593E398                 dq offset ??_R4CAdminInvite@@6B@ ; const CAdminInvite::`RTTI Complete Object Locator'
+.rdata:00007FF6C593E3A0 ; const CAdminInvite::`vftable'
+.rdata:00007FF6C593E3A0 ??_7CAdminInvite@@6B@ dq offset sub_7FF6C4FC2E34
+.rdata:00007FF6C593E3A0                                         ; DATA XREF: sub_7FF6C4FF197C+573?o
+.rdata:00007FF6C593E3A0                                         ; .data:off_7FF6C682B920?o
+.rdata:00007FF6C593E3A8                 dq offset sub_7FF6C4FDBA1C
+.rdata:00007FF6C593E3B0                 dq offset loc_7FF6C4FD5E2A+2
+.rdata:00007FF6C593E3B8                 dq offset sub_7FF6C4FF5F88
+.rdata:00007FF6C593E3C0                 dq offset sub_7FF6C4FCC55C
+.rdata:00007FF6C593E3C8                 dq offset sub_7FF6C4FC5064
+.rdata:00007FF6C593E3D0 aAinv           db 'ainv',0             ; DATA XREF: sub_7FF6C4FF197C+5CB?o
+.rdata:00007FF6C593E3D5                 align 8
+.rdata:00007FF6C593E3D8
+.rdata:00007FF6C593E3D8 ; class CJoinQueueRequest: rage::netGamePresenceEvent;   (#classinformer)
+.rdata:00007FF6C593E3D8                 dq offset ??_R4CJoinQueueRequest@@6B@ ; const CJoinQueueRequest::`RTTI Complete Object Locator'
+.rdata:00007FF6C593E3E0 ; const CJoinQueueRequest::`vftable'
+.rdata:00007FF6C593E3E0 ??_7CJoinQueueRequest@@6B@ dq offset sub_7FF6C4FC2E34
+.rdata:00007FF6C593E3E0                                         ; DATA XREF: sub_7FF6C4FF197C+5F5?o
+.rdata:00007FF6C593E3E0                                         ; sub_7FF6C4FFB478+2B?o ...
+.rdata:00007FF6C593E3E8                 dq offset sub_7FF6C4FDBA1C
+.rdata:00007FF6C593E3F0                 dq offset sub_7FF6C4FD5E84
+.rdata:00007FF6C593E3F8                 dq offset sub_7FF6C4FF6748
+.rdata:00007FF6C593E400                 dq offset sub_7FF6C4FCCED4
+.rdata:00007FF6C593E408                 dq offset sub_7FF6C4FC58C0
+.rdata:00007FF6C593E410 aJreq           db 'jreq',0             ; DATA XREF: sub_7FF6C4FD5E84?o
+.rdata:00007FF6C593E410                                         ; sub_7FF6C4FF197C+647?o
+.rdata:00007FF6C593E415                 align 8
+.rdata:00007FF6C593E418
+.rdata:00007FF6C593E418 ; class CJoinQueueUpdate: rage::netGamePresenceEvent;   (#classinformer)
+.rdata:00007FF6C593E418                 dq offset ??_R4CJoinQueueUpdate@@6B@ ; const CJoinQueueUpdate::`RTTI Complete Object Locator'
+.rdata:00007FF6C593E420 ; const CJoinQueueUpdate::`vftable'
+.rdata:00007FF6C593E420 ??_7CJoinQueueUpdate@@6B@ dq offset sub_7FF6C4FC2E34
+.rdata:00007FF6C593E420                                         ; DATA XREF: sub_7FF6C4FF197C+677?o
+.rdata:00007FF6C593E420                                         ; sub_7FF6C4FFB50C+23?o ...
+.rdata:00007FF6C593E428                 dq offset sub_7FF6C4FDBA1C
+.rdata:00007FF6C593E430                 dq offset sub_7FF6C4FD5E8C
+.rdata:00007FF6C593E438                 dq offset sub_7FF6C4FF6824
+.rdata:00007FF6C593E440                 dq offset sub_7FF6C4FCCFBC
+.rdata:00007FF6C593E448                 dq offset sub_7FF6C4FC58F4
+.rdata:00007FF6C593E450 aJqup           db 'jqup',0             ; DATA XREF: sub_7FF6C4FD5E8C?o
+.rdata:00007FF6C593E450                                         ; sub_7FF6C4FF197C+69E?o
+.rdata:00007FF6C593E455                 align 8
+.rdata:00007FF6C593E458
+.rdata:00007FF6C593E458 ; struct struct msgRequestKickFromHost::AutoIdDesc__: rage::AutoIdDescriptor_T<rage::netMessage>, rage::AutoIdDescriptor;   (#classinformer)
+.rdata:00007FF6C593E458                 dq offset ??_R4AutoIdDesc__@msgRequestKickFromHost@@6B@ ; const msgRequestKickFromHost::AutoIdDesc__::`RTTI Complete Object Locator'
+.rdata:00007FF6C593E460 ; const msgRequestKickFromHost::AutoIdDesc__::`vftable'
+.rdata:00007FF6C593E460 ??_7AutoIdDesc__@msgRequestKickFromHost@@6B@ dq offset sub_7FF6C50CE8C0
+.rdata:00007FF6C593E460                                         ; DATA XREF: sub_7FF6C4FBEB10+62?o
+.rdata:00007FF6C593E460                                         ; .data:off_7FF6C682AB78?o
+.rdata:00007FF6C593E468
+.rdata:00007FF6C593E468 ; class CFingerOfGodPresenceEvent: rage::netGamePresenceEvent;   (#classinformer)
+.rdata:00007FF6C593E468                 dq offset ??_R4CFingerOfGodPresenceEvent@@6B@ ; const CFingerOfGodPresenceEvent::`RTTI Complete Object Locator'
+.rdata:00007FF6C593E470 ; const CFingerOfGodPresenceEvent::`vftable'
+.rdata:00007FF6C593E470 ??_7CFingerOfGodPresenceEvent@@6B@ dq offset sub_7FF6C4FC2E34
+.rdata:00007FF6C593E470                                         ; DATA XREF: sub_7FF6C4FF197C+74C?o
+.rdata:00007FF6C593E470                                         ; .data:off_7FF6C682BB30?o
+.rdata:00007FF6C593E478                 dq offset sub_7FF6C4FDBA1C
+.rdata:00007FF6C593E480                 dq offset sub_7FF6C4FD5E34
+.rdata:00007FF6C593E488                 dq offset sub_7FF6C43DA758
+.rdata:00007FF6C593E490                 dq offset sub_7FF6C4FCC740
+.rdata:00007FF6C593E498                 dq offset sub_7FF6C4FC51D8
+.rdata:00007FF6C593E4A0 aFinger         db 'finger',0           ; DATA XREF: sub_7FF6C4FD5E34?o
+.rdata:00007FF6C593E4A0                                         ; sub_7FF6C4FF197C+773?o
+.rdata:00007FF6C593E4A7                 align 8
+.rdata:00007FF6C593E4A8
+
+
+g_netTimeSync
+HandleTimeSync
+_processRemoveAck
+_getNetAckTimestamp
+_processAck
+AckResult
+HandleCloneSync
+GetFrameIndex
+GetPosition
+fwEntity
+
+static hook::cdecl_stub<void(rage::netObjectMgr*, rage::netObject*)> _processRemoveAck([]()
+{
+	return hook::get_pattern("39 42 74 75 12 39 42 70 75 0D", -0x11);
+});
+
+static hook::cdecl_stub<uint32_t()> _getNetAckTimestamp([]()
+{
+	return hook::get_pattern("3B CA 76 02 FF", -0x31);
+});
+
+static hook::cdecl_stub<void(rage::netSyncTree*, rage::netObject*, uint8_t, uint16_t, uint32_t, int)> _processAck([]()
+{
+	return hook::get_pattern("45 32 ED FF 50 20 8B CB 41", -0x34);
+});
+
+static hook::cdecl_stub<netObject*(uint16_t id)> getNetObjById([]()
+{
+	return hook::get_call(hook::get_pattern("14 41 0F B7 0E E8 ? ? ? ? 48 8B C8", 5));
+});
+
+rage__s_NetworkTimeThisFrameStart
+static void*(*g_origGetScenarioTaskScenario)(void* scenarioTask);
+
+static void* GetScenarioTaskScenario(char* scenarioTask)
+{
+	void* scenario = g_origGetScenarioTaskScenario(scenarioTask);
+
+	if (!scenario)
+	{
+		static bool hasCrashedBefore = false;
+
+		if (!hasCrashedBefore)
+		{
+			hasCrashedBefore = true;
+
+			trace("WARNING: invalid scenario task triggered (scenario ID: %d)\n", *(uint32_t*)(scenarioTask + 168));
+		}
+
+		*(uint32_t*)(scenarioTask + 168) = 0;
+
+		scenario = g_origGetScenarioTaskScenario(scenarioTask);
+
+		assert(scenario);
+	}
+
+	return scenario;
+}
+blockes PX, disturbed, paragon, impulse, 2t1, luna
+
+
+
+_netBuffer_ReadInteger
+
+
+
+getNetworkManager
+IsWaitingForTimeSync
+g_globalNetSecurityKey
+RageNetSend 
+
+	// nullify RageNetSend thread
+	hook::put<uint16_t>(hook::get_pattern("41 BC 88 13 00 00 E8 ? ? ? ? 83 C8 01", -6), 0xE990);
+
+	// nullify RageNetRecv thread
+	hook::nop(hook::get_pattern("41 F6 47 40 02 0F 84 ? ? ? ? 49 8B 4F 28 BA", 5), 6);
+
+	// get calls for RageNetSend function
+	hook::set_call(&g_handleQueuedSend, hook::get_pattern("48 8B CE E8 ? ? ? ? 48 8D BE ? 01 00 00 41", 3));
+
+			auto size = g_receivePacket(buffer, buffer2);
+			g_handlePacket(buffer, buffer2, size);
+
+	// netrelay thread handle calls
+	{
+		char* location = hook::get_pattern<char>("48 8D 8D C8 09 00 00 41 B8", 13);
+		hook::set_call(&g_receivePacket, location);
+		hook::set_call(&g_handlePacket, location + 22);
+	}
+
+
+_netBuffer_ReadInteger
+
+
+
+getNetworkManager
+IsWaitingForTimeSync
+g_globalNetSecurityKey
+RageNetSend 
+
+	// nullify RageNetSend thread
+	hook::put<uint16_t>(hook::get_pattern("41 BC 88 13 00 00 E8 ? ? ? ? 83 C8 01", -6), 0xE990);
+
+	// nullify RageNetRecv thread
+	hook::nop(hook::get_pattern("41 F6 47 40 02 0F 84 ? ? ? ? 49 8B 4F 28 BA", 5), 6);
+
+	// get calls for RageNetSend function
+	hook::set_call(&g_handleQueuedSend, hook::get_pattern("48 8B CE E8 ? ? ? ? 48 8D BE ? 01 00 00 41", 3));
+
+			auto size = g_receivePacket(buffer, buffer2);
+			g_handlePacket(buffer, buffer2, size);
+
+	// netrelay thread handle calls
+	{
+		char* location = hook::get_pattern<char>("48 8D 8D C8 09 00 00 41 B8", 13);
+		hook::set_call(&g_receivePacket, location);
+		hook::set_call(&g_handlePacket, location + 22);
+	}
+
+
+48 8b c4 66 44 89 48
+
+48 8b c4 48 89 58 ? 48 89 68 ? 48 89 70 ? 48 89 78 ? 41 54 41 56 41 57 48 83 ec ? 4c 8b f2 41 0f b7 d1
+
+48 8b c4 48 89 58 ? 48 89 68 ? 48 89 70 ? 48 89 78 ? 41 54 41 56 41 57 48 83 ec ? 4c 8b f2 4d 8b e0 48 8d 50
+
+48 8b c4 48 89 58 ? 48 89 68 ? 48 89 70 ? 48 89 78 ? 41 54 41 56 41 57 48 81 ec ? ? ? ? 44 8a 62
+
+/////////////////////////////////////////////////////////////////
+
+48 8B EC 48 83 EC 30 48 8B 05 ? ? ? ? 48 8B D9 49
+
+0xB992872 194586738, as that is ERR_NET_ARRAY
+
+
+
+main selector [21:18:27] ,NATIVE,OK,STAT_SET_INT,Anonymous,0x00,0,selector,,,,0xD3161861,0,TRUE
+
+auto npPool = rage::GetPoolBase("CNonPhysicalPlayerData");
+
+ entity->IsOfType(HashString("CVehicle")))
+
+ vehicle->GetSeatManager();
+
+ //cool crASH?
+[16:37:31] [HACKER] [misc.cpp:876]            	NATIVE	OK	STAT_SET_INT	Anonymous	0x00	0	freemode				0xA26645AD	13395	TRUE																																																																																																																																																																																																																																															
+[16:37:31] [HACKER] [misc.cpp:876]            	NATIVE	OK	STAT_SET_INT	Anonymous	0x00	0	freemode				0x47D56577	1881681	TRUE																																																																																																																																																																																																																																															
+
+
+https://github.com/citizenfx/fivem/blob/b9670a862e2b3067de3d0e792c0e49873c29da06/code/components/gta-game-five/include/NetworkPlayerMgr.h
+
+https://www.unknowncheats.me/forum/2488286-post5373.html
+
+https://bitbucket.org/gir489/bigbasev2-fix/src/master/
+
+/////////////////////////////////////////////////
+[21:16:50] [WARNING][misc.cpp:764]            	SCAN	OK	CREATE	OBJECT	336	0xe3ba450	0	0																																																																																																																				
+
+			bool attach = ((uint8_t*)netSyncTree->m_sync_tree_node)[640] == 1;
+0xc42c019a
+0xe3ba450
+
+
+[19:13:59] [WARNING][misc.cpp:768]            	SCAN	OK	SYNC	PLAYER	784	1103100608	0x41bffac0	23.997437	float																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																
+[19:13:59] [WARNING][misc.cpp:768]            	SCAN	OK	SYNC	PLAYER	788	1111070496	0x42399720	46.397583	float																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																
+[19:13:59] [WARNING][misc.cpp:768]            	SCAN	OK	SYNC	PLAYER	792	1110987488	0x423852e0	46.080933	float																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																
+
+[19:13:59] [WARNING][misc.cpp:768]            	SCAN	OK	SYNC	PED	640	1100048512	0x41916880	18.176025	float																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																
+[19:13:59] [WARNING][misc.cpp:768]            	SCAN	OK	SYNC	PED	644	1093289600	0x412a4680	10.642212	float																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																
+[19:13:59] [WARNING][misc.cpp:768]            	SCAN	OK	SYNC	PED	648	1111611456	0x4241d840	48.461182	float																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																
+[19:13:59] [WARNING][misc.cpp:768]            	SCAN	OK	SYNC	PED	896	1090938471	0x41066667	8.400001	float																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																
+[19:13:59] [WARNING][misc.cpp:768]            	SCAN	OK	SYNC	PED	900	1104761238	0x41d95196	27.164837	float																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																
+[19:13:59] [WARNING][misc.cpp:768]            	SCAN	OK	SYNC	PED	904	1111540493	0x4240c30d	48.190479	float																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																
+
+[19:15:03] [WARNING][misc.cpp:768]            	SCAN	OK	CREATE	OBJECT	560	1107222511	0x41fedfef	31.859343	float																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																
+[19:15:03] [WARNING][misc.cpp:768]            	SCAN	OK	CREATE	OBJECT	564	1104616050	0x41d71a72	26.887913	float																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																
+[19:15:03] [WARNING][misc.cpp:768]            	SCAN	OK	CREATE	OBJECT	568	1074328719	0x4008f48f	2.139927	float																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																
+
+[19:09:25] [WARNING][misc.cpp:768]            	SCAN	OK	CREATE	PLAYER	192	-1667301416	0x9c9effd8	0		ped	player																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																														
+[19:09:25] [WARNING][misc.cpp:768]            	SCAN	OK	CREATE	PLAYER	208	1122284725	0x42e4b4b5	114.352943	float																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																
+[19:09:25] [WARNING][misc.cpp:768]            	SCAN	OK	CREATE	PLAYER	216	1136508350	0x43bdbdbe	379.482361	float																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																
+[19:09:25] [WARNING][misc.cpp:768]            	SCAN	OK	CREATE	PLAYER	248	1136508350	0x43bdbdbe	379.482361	float																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																
+[19:09:25] [WARNING][misc.cpp:768]            	SCAN	OK	CREATE	PLAYER	272	1118953954	0x42b1e1e2	88.941177	float																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																
+[19:09:25] [WARNING][misc.cpp:768]            	SCAN	OK	CREATE	PLAYER	280	1136508350	0x43bdbdbe	379.482361	float																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																
+[19:09:25] [WARNING][misc.cpp:768]            	SCAN	OK	CREATE	PLAYER	312	1136508350	0x43bdbdbe	379.482361	float																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																
+[19:09:25] [WARNING][misc.cpp:768]            	SCAN	OK	CREATE	PLAYER	784	1112914780	0x4255bb5c	53.432968	float																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																
+[19:09:25] [WARNING][misc.cpp:768]            	SCAN	OK	CREATE	PLAYER	788	1100654507	0x419aa7ab	19.331869	float																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																
+[19:09:25] [WARNING][misc.cpp:768]            	SCAN	OK	CREATE	PLAYER	792	1113382414	0x425cde0e	55.21685	float																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																
+[19:09:25] [WARNING][misc.cpp:768]            	SCAN	OK	CREATE	PLAYER	832	1101004800	0x41a00000	20	float	
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+g_initFunctionNames
+CreateCloneObject
+MH_CreateHook(location, ReadDataNodeStub, (void**)&g_origReadDataNode);
+MH_CreateHook(hook::get_pattern("41 83 E1 07 45 8B D8 49 C1 FA 03 BB 08 00 00 00", -0x12), _netBuffer_ReadUnsigned, (void**)&g_orig_netBuffer_ReadUnsigned);
+
+//////
+
+
+48 8B EC 48 83 EC 30 48 8B 05 ? ? ? ? 48 8B D9 49
+
+GTA5.exe+1650BB8
+
+19 bytes 0x90
+GTA5.exe+1650D77 
+
+
+
+target function
+GTA5.exe+1650D85 - E8 EE4DC5FF           - call GTA5.exe+12A5B78
+
+start function
+
+GTA5.exe+1650BB8 - 48 8B EC              - mov rbp,rsp
+GTA5.exe+1650DD0 - 41 5F                 - pop r15
+
+/////////////////////////////////////////////////
+
+
+0 hash buffer
+
+
+
+
+32	type (hash)
+64	frame index + highbit final flush
+n	data
+
+
+
+	"msgConVars",
+	"msgEnd",
+	"msgEntityCreate",
+	"msgNetGameEvent",
+	"msgObjectIds",
+	"msgPackedAcks",
+	"msgPackedClones",
+	"msgPaymentRequest",
+	"msgRequestObjectIds",
+	"msgResStart",
+	"msgResStop",
+	"msgRoute",
+	"msgRpcEntityCreation",
+	"msgRpcNative",
+	"msgServerCommand",
+	"msgServerEvent",
+	"msgTimeSync",
+	"msgTimeSyncReq",
+	"msgWorldGrid",
+	"msgFrame",
+	"msgIHost",
+	"gameStateAck",
+	"msgNetEvent",
+	"msgServerEvent",
+
+msgNetGameEvent
+
+// allocate a RAGE buffer
+	uint8_t packetStub[1024];
+	rage::datBitBuffer rlBuffer(packetStub, sizeof(packetStub));
+
+	ev->Prepare(&rlBuffer, g_player31, nullptr);
+	ev->PrepareExtraData(&rlBuffer, false, g_player31, nullptr);
+
+	net::Buffer outBuffer;
+
+	// TODO: replace with bit array?
+	std::set<int> targetPlayers;
+
+	for (auto& player : g_players)
+	{
+		if (player && player->nonPhysicalPlayerData())
+		{
+			// temporary pointer check
+			if ((uintptr_t)player->nonPhysicalPlayerData() > 256)
+			{
+				// make it 31 for a while (objectmgr dependencies mandate this)
+				auto originalIndex = player->physicalPlayerIndex();
+				player->physicalPlayerIndex() = (player != g_playerMgr->localPlayer) ? 31 : 0;
+
+				if (ev->IsInScope(player))
+				{
+					targetPlayers.insert(g_netIdsByPlayer[player]);
+				}
+
+				player->physicalPlayerIndex() = originalIndex;
+			}
+			else
+			{
+				AddCrashometry("player_corruption", "true");
+			}
+		}
+	}
+
+	outBuffer.Write<uint8_t>(targetPlayers.size());
+
+	for (int playerId : targetPlayers)
+	{
+		outBuffer.Write<uint16_t>(playerId);
+	}
+
+	outBuffer.Write<uint16_t>(eventId);
+	outBuffer.Write<uint8_t>(0);
+	outBuffer.Write<uint16_t>(ev->eventType);
+
+	uint32_t len = rlBuffer.GetDataLength();
+	outBuffer.Write<uint16_t>(len); // length (short)
+	outBuffer.Write(rlBuffer.m_data, len); // data
+
+	g_netLibrary->SendReliableCommand("msgNetGameEvent", (const char*)outBuffer.GetData().data(), outBuffer.GetCurOffset());
+
+
+	setPat<CReplayInterface>("replay interface",
+		"\x48\x8D\x0D\x00\x00\x00\x00\x48\x8B\xD7\xE8\x00\x00\x00\x00\x48\x8D\x0D\x00\x00\x00\x00\x8A\xD8\xE8\x00\x00\x00\x00\x84\xDB\x75\x13\x48\x8D\x0D\x00\x00\x00\x00",
+		"xxx????xxxx????xxx????xxx????xxxxxxx????", 
+		&Hooking::m_replayIntf,
+		true, 
+		3,
+		1);
+
+HandleNetGameEvent
+ExecuteNetGameEvent
+	SendReliableCommand
+SendGameEvent
+
+HandleEventWrap
+
+
+_netBuffer_ReadUnsigned
+_netBuffer_WriteUnsigned
+
+netObjectMgrBase__GetNetworkObject
+netObjectMgrBase__GetNetworkObjectForPlayer
+
+// nullify RageNetSend thread
+	hook::put<uint16_t>(hook::get_pattern("41 BC 88 13 00 00 E8 ? ? ? ? 83 C8 01", -6), 0xE990);
+
+	// get calls for RageNetSend function
+	hook::set_call(&g_handleQueuedSend, hook::get_pattern("48 8B CE E8 ? ? ? ? 48 8D BE ? 01 00 00 41", 3));
+
+	// disable netrelay thread
+	//hook::put<uint16_t>(hook::get_pattern("0F 85 60 01 00 00 48 8B 1D", 0), 0xE990);
+
+
+static hook::cdecl_stub<bool(const Vector3* position, float radius, float maxDistance, CNetGamePlayer** firstPlayer)> _isSphereVisibleForAnyPlayer([]()
+{
+	return hook::get_call(hook::get_pattern("0F 29 4C 24 30 0F 28 C8 E8", 8));
+});
+
+
+if (native->GetRpcType() == RpcConfiguration::RpcType::EntityCreate)
+
+
+
+sendToClient
+SendPacket
+ClientSharedPtr
+
+
+g_queryFunctions = hook::get_address<rage::netInterface_queryFunctions**>(hook::get_pattern("72 23 48 8B 0D ? ? ? ? 48 85 C9 74", 5));
+
+
+
+need to read
+
+	https://www.unknowncheats.me/forum/grand-theft-auto-v/144028-grand-theft-auto-reversal-structs-offsets-422.html
+
+DONE!
+	god mode		//calling script
+	money drop
+
+	freese			//blocking network events
+	explode
+	fire/water
+	take weapon
+	rag doll
+
+	vote kick
+	report kick
+	idle kick
+	script kick		//blocking script events
+	vehicle kick	//replacing natives
+
+TODO!
+	attach entity/fire
+	cage
+	attach ped
+	GTA crashes
+	NetworkEvent NAK
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+crash
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	if (eventId == GAME_WEATHER_EVENT && Hooking::crash_protection) return true;
+
+	DWORD Hooking::forbidden_object[99] =
+	{
+		0xceea3f4b, 0x2592b5cf, 0x9cf21e0f, 0xc1ce1183, 0x49863e9c, 0xcd93a7db, 0x82cac433, 0x74f24de,  0x1c725a1,  0x81fb3ff0,
+		0x79b41171, 0x781e451d, 0xa5e3d471, 0x6a27feb1, 0x861d914d, 0x8c049d17, 0xffba70aa, 0xe65ec0e4, 0xc3c00861, 0x5f5dd65c,
+		0xc07792d4, 0x53cfe80a, 0xd9f4474c, 0xcb2acc8,  0xc6899cde, 0xd14b5ba3, 0x32a9996c, 0x69d4f974, 0xc2e75a21, 0x1075651,
+		0xe1aeb708, 0xcbbb6c39, 0x6fa03a5e, 0xcf7a9a9d, 0x34315488, 0x45ef7804, 0xac3de147, 0xcafc1ec3, 0xd971bbae, 0xe764d794,
+		0xf51f7309, 0x1e78c9d,  0xa49658fc, 0x4f2526da, 0x576ab4f6, 0xd20b1778, 0x54bc1cd8, 0xce109c5c, 0xe049c0ce, 0x78de93d1,
+		0xe5b89d31, 0x5850e7b3, 0x6aed0e4b, 0xc50a4285, 0xb648a502, 0x5e497511, 0x47c14801, 0xfd8bb397, 0xef541728, 0xc2cc99d8,
+		0x8fb233a4, 0x24e08e1f, 0x337b2b54, 0x7367d224, 0x919d9255, 0x4484243f, 0x3c91d42d, 0x3353525a, 0xc175f658, 0x762657c6,
+		0x94ac15b3, 0x28014a56, 0xe0a8bfc9, 0x3a559c31, 0x5fc8a70,  0x3b545487, 0xb9402f87, 0xCE5FF074, 0x573201B8, 0xAAB71F62,
+		0xA8683715, 0x14EC17EA, 0x56E29962, 0xFCFA9E1E, 0x644AC75E, 0x18012A9F, 0xD86B5A95, 0x8BBAB455, 0x2FD800B7, 0x3C831724,
+		0x6AF51FAF, 0x471BE4B2, 0x4E8F95A2, 0x8D8AC8B9, 0x1250D7BA, 0x64611296, 0xB11BAB56, 0x06A20728, 0x431D501C
+	};
+
+	40 53 48 81 EC ? ? ? ? 44 8B 81
+
+	bool Hooks::ScriptEventHandler(uint64_t NetEventStruct, int64_t CNetGamePlayer)
+	{
+		auto Args = reinterpret_cast<int64_t*>(NetEventStruct + 0x70);
+		auto SenderID = *reinterpret_cast<int8_t*>(CNetGamePlayer + 0x2D);
+		auto ScriptEventHash = Args[0]; // Position 0 is the first arg from the argstruct
+ 
+		if (g_BlockKnownScriptEvents)
+		{
+			switch (ScriptEventHash)
+			{
+			case /*LIST HERE YOUR HASHES*/:
+			. . .
+ 
+				if (g_LogBlockedEvents)
+					g_Logger->Info("Blocked Script Event %i from Player %s", ScriptEventHash, PLAYER::GET_PLAYER_NAME(SenderID));
+ 
+				return true;
+ 
+			default:
+				break;
+			}
+		}
+ 
+		return static_cast<decltype(&ScriptEventHandler)>(g_Hooking->m_OriginalScriptEventHandler)(NetEventStruct, CNetGamePlayer); // return original here
+	}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+bool hooks::attach_entity_to_entity_hook(rage::netObject* attachment, CPed* target)
+
+void Features::AttachObjects(char* object)
+{
+	Entity t = PLAYER::GET_PLAYER_PED_SCRIPT_INDEX(g_SelectedPlayer);
+	int bone = -1;
+	Vector3 pos = { 0.f, -.26f, .1f };
+	Vector3 rot = { 0.f, 0.f, 0.f };
+	Hash hash = GAMEPLAY::GET_HASH_KEY(object);
+	if (bone != -1 && pos.y == -.26f)
+		pos.y = 0.f;
+	bone == -1 ? bone = 0 : bone = PED::GET_PED_BONE_INDEX(t, bone);
+	Vector3		pos2 = get_coords_infront_player(6.f);
+	Object	obj;
+	Vector3 empty = { 0 };
+	OBJECT::CREATE_OBJECT(hash, pos2.x, pos2.y, pos2.z, true, 1, -1, &obj, true, false, false);	//$("prop_cs_dildo_01")
+	ENTITY::ATTACH_ENTITY_TO_ENTITY(obj, t, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 2, 1);
+	return;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Since this game is just boring here are some sigs :
+
+if you are still searching for an alternative to get_player_ped :
+get_network_time_accurate :
+Code:
+ 40 53 48 83 EC 20 48 8B 0D ? ? ? ? E8 ? ? ? ? 84 C0 74 19
+recieived_event (can be used to block net events) :
+Code:
+ 48 8B C4 48 89 58 08 48 89 68 10 48 89 70 18 48 89 78 20 41 56 48 83 EC 30 48 8B D9 45 0F B7 F1
+increment_stat_handler (can be used to block reports also im not sure if thats the correct signature but should be) :
+Code:
+ 48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC 20 8B F2 49 8B D9 B2 01
+scripted_game_event (an alternative to get_event_data will also give you the reciever id as long as he uses tse against you) :
+Code:
+ 40 53 48 81 EC ? ? ? ? 44 8B 81 ? ? ? ? 0F 57 C9
+globalTable (self explanatory):
+Code:
+ 4C 8D 05 ? ? ? ? 4D 8B 08 4D 85 C9 74 11
+get_label_text (can be used to edit label texts in the hud but there is nothing to modify in this game) :
+Code:
+ 40 53 48 83 EC 20 48 8B 41 10 48 8B D9 48 8B 08 E8 ? ? ? ? 48 8B 0B 48 89 01 48 83 C4 20 5B C3
+
+ /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////
+//RECIEVE EVENTS https://guidedhacking.com/threads/gta-v-cheats-offsets-structs-reversal-information.13882/
+//https://pastebin.com/rxfVSBv5
+//////////////////////////////
+                                    "66 41 83 F9 ? 0F 83"
+                                    "66\x41x83xF9x00x0Fx83"
+                                    E8 ? ? ? ? 48 8D 05 ? ? ? ? 48 89 84 24
+                                    40 53 48 81 EC ? ? ? ? 44 8B 81
+
+                                    48 83 EC 28 E8 ? ? ? ? 48 8B 0D ? ? ? ? 4C 8D 0D ? ? ? ? 4C 8D 05 ? ? ? ? BA 03
+
+    NETWORK_REQUEST_CONTROL_OF_ENTITY
+	    REQUEST_CONTROL_EVENT
+	    GIVE_CONTROL_EVENT
+
+//////////////////////////////
+//interesting functions
+//////////////////////////////
+	SET_EVERYONE_IGNORE_PLAYER
+	SET_POLICE_IGNORE_PLAYER
+	STATS::PLAYSTATS_IDLE_KICK(99999999);
+	SET_RUN_SPRINT_MULTIPLIER_FOR_PLAYER
+
+	//might stop FREEZE
+	ENTITY::FREEZE_ENTITY_POSITION(container, 0);
+
+	//might stop vehicle kick
+	TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS
+	SET_ENTITY_DYNAMIC
+
+    //VEHICLE
+    VEHICLE::MODIFY_VEHICLE_TOP_SPEED
+    _SET_VEHICLE_ENGINE_POWER_MULTIPLIER
+
+//////////////////////////////
+Freeze
+//////////////////////////////
+
+	ENTITY::FREEZE_ENTITY_POSITION(container, 1);
+
+//////////////////////////////
+kick vehicle
+//////////////////////////////
+	if (PED::IS_PED_IN_ANY_VEHICLE(PLAYER::GET_PLAYER_PED_SCRIPT_INDEX(player), FALSE))
+	{
+		RequestControlOfEnt(PLAYER::GET_PLAYER_PED_SCRIPT_INDEX(player));
+		AI::CLEAR_PED_TASKS_IMMEDIATELY(PLAYER::GET_PLAYER_PED_SCRIPT_INDEX(player));
+		AI::CLEAR_PED_TASKS(PLAYER::GET_PLAYER_PED_SCRIPT_INDEX(player));
+		AI::CLEAR_PED_SECONDARY_TASK(PLAYER::GET_PLAYER_PED_SCRIPT_INDEX(player));
+	}
+	else
+	{
+		notifyBlocked((char*)"Player is not in a vehicle!");
+	}
+
+////////////////////////////////////////////////////////////////////////
+//1.50  https://gist.github.com/MisterModzZ/aa02360f70fc8e5857dfc3db838a6b2c
+////////////////////////////////////////////////////////////////////////
+
+    TELEPORT =                      -125347541                                                              Global_1388015.f_532    PASS
+    VEHICLE_KICK =                  -1089379066                                                             Global_1388015.f_63     FAIL
+    CEO_KICK =                      -701823896                                                              Global_1388015.f_569    PASS
+    CEO_BAN =                       -327286343                                                              Global_1388015.f_591    PASS
+
+    CLEAR_WANTED_LEVEL =            -163616977
+    TRANSACTION_ERROR =             189238289
+    INSURANCE_MSG =                 1663317123
+    SPECTATING_MSG1 =               1587225594
+    SPECTATING_MSG2                 -38669034
+    STOPPED_SPECTATING_MSG          320958241
+    SOUND_SPAM_1                    552065831
+    SOUND_SPAM_2                    -1441342807
+    REMOTE_OTR                      -615431083
+    REMOTE_BRIBE                    -1961284186
+
+////////////////////////////////////////////////////////////////////////
+//1.48  https://gist.github.com/MisterModzZ/aa02360f70fc8e5857dfc3db838a6b2c
+////////////////////////////////////////////////////////////////////////
+
+    Kick From Car :             1796063150                          Global_1386431.f_63     -1089379066     Global_1388015.f_63     FAIL
+    Kick To New Lobby :         3353227751          -941739545      Global_1386431.f_708    -2017629233     Global_1388015.f_736    FAIL
+    Teleport / Black Screen :   1365267338                          Global_1386431.f_506    -125347541      Global_1388015.f_532    PASS
+    Ceo Ban :                   3968834430          -326132866      Global_1386431.f_565    -327286343      Global_1388015.f_591    PASS
+    Ceo Kick :                  3688935101          -606032195      Global_1386431.f_543    -701823896      Global_1388015.f_569    PASS
+    Non Host Kick :             423635655                           Global_1386431.f_591    -1246838892     Global_1388015.f_617
+    Non Host Kick :             -1264063129                         Global_1386431.f_589    1432301416      Global_1388015.f_615    FAIL
+    Kick To Single :            2870072008          -1424895288     Global_1386431.f_617    1667907776      Global_1388015.f_644    FAIL
+    Send to Mission :           3574264799
+    Spectate :                  111286607
+    Clean Wanted Level :        685727305
+    Sound Spam :                715645088
+    Transaction Error :         3245935833 
+    Scripted Cam :              4252351910
+    Insurance Notif :           252265430
+
+////////////////////////////////////////////////////////////////////////
+//1.47  https://gist.github.com/MisterModzZ/852b37593b122248979cca58a3ead2f7
+////////////////////////////////////////////////////////////////////////
+
+	FORCE_KICK                  1209128713                          Global_1386431.f_609    1152017566      Global_1388015.f_636
+	FORCE_SINGLEPLAYER          2994416968          -1300550328     Global_1386431.f_424    1453328116      Global_1388015.f_450
+
+////////////////////////////////////////////////////////////////////////
+//1.48  https://guidedhacking.com/threads/gta-v-cheats-offsets-structs-reversal-information.13882/
+////////////////////////////////////////////////////////////////////////
+
+    Infinite Loading            -2145536660                         Global_1386431.f_692    -348418057      Global_1388015.f_720
+    Kick Protection             1062544784                          Global_1386431.f_16     -1900102430     Global_1388015.f_16
+
+    1386431 + 543 = 543 //CEO Kick Protection                               CONFIRMED
+    1386431 + 565 = 565 //CEO Ban Protection                                CONFIRMED
+    1386431 + 63 = 63 //Gentle Kick From Vehicle Protection                 CONFIRMED
+    1386431 + 692 = 692 //inf loading screen protection                     ABOVE
+    1386431 + 16 = 16 //kick protection (there are actually a lot more)     ABOVE
+
+////////////////////////////////////////////////////////////////////////
+//1.47  Moon Menu source code
+////////////////////////////////////////////////////////////////////////
+
+	RemoteMessageIdleKick = 244175981                                                   341060676       Global_1388864.f_45
+
+    InfiniteLoading         -125347541      CONFIRMED
+    CEOBan                  -327286343      CONFIRMED
+    CEOKick                 -701823896      CONFIRMED
+    KickPlayer              297770348                                                   297770348       Global_1388015.f_643
+    GentleKick              -1089379066     CONFIRMED
+    ForceDisappear          77616667        CANT FIND
+        
+////////////////////////////////////////////////////////////////////////
+//iamabignumber
+////////////////////////////////////////////////////////////////////////
+
+    [1:44:23] [INF] [sge] num args: 16 | event id: 1432301416       CONFIRMED
+    [:44:23] [INF] [sge] num args: 24 | event id: -1246838892       CONFIRMED
+    [1:44:23] [INF] [sge] num args: 16 | event id: 297770348        KickPlayer          297770348       Global_1388015.f_643
+    [1:44:23] [INF] [sge] num args: 16 | event id: 930233414                            930233414       Global_1388015.f_632
+    [1:44:23] [INF] [sge] num args: 16 | event id: 498709856                            498709856       Global_1388015.f_642
+    [1:44:23] [INF] [sge] num args: 24 | event id: -452918768       BUSINESS_BATTLES    CANT       
+    [1:44:23] [INF] [sge] num args: 24 | event id: 561831609        BUSINESS_BATTLES    CANT
+
+////////////////////////////////////////////////////////////////////////
+//sysx
+////////////////////////////////////////////////////////////////////////
+
+    VehicleKick                 1089379066      CONFIRMED
+    LoadingScreen               125347541       CONFIRMED
+    NonHostKick                 569373826                           MAYBE               -569373826      Global_1388015.f_449
+    NonHostKick                 1453328116                          TODO                1453328116      Global_1388015.f_450
+    Unknown Kick                498955166                           MAYBE               -498955166      Global_1388015.f_2
+    SinglePlayerKick            1667907776      CONFIRMED
+    NonHost Kick                1246838892      CONFIRMED
+    CEO Ban                     327286343       CONFIRMED
+
+////////////////////////////////////////////////////////////////////////
+//  https://pastebin.com/rxfVSBv5
+////////////////////////////////////////////////////////////////////////
+
+    Normal Kick
+                                297770348               Global_1388015.f_643
+                                498709856               Global_1388015.f_642
+                                -1297785021             Global_1388015.f_21
+                                143196100               Global_1388015.f_692
+                                -1818550779             Global_1388015.f_608
+                                1432301416              Global_1388015.f_615
+                                2037380969              Global_1388015.f_633
+                                -1964956981             Global_1388015.f_610
+                                -1010395481             Global_1388015.f_565
+                                1070706073              Global_1388015.f_731
+                                -1933245257             Global_1388015.f_488
+                                380850754               Global_1388015.f_482
+                                -1924332863             Global_1388015.f_368
+                                -1704719905             Global_1388015.f_326
+                                709335341               Global_1388015.f_737
+    Super Kick
+                                1152017566              Global_1388015.f_636
+                                -1246838892             Global_1388015.f_617
+                                1667907776              Global_1388015.f_644
+                                -2017629233             Global_1388015.f_736
+    Single player
+                                774421744               Global_1388015.f_577
+                                327286343               Global_1388015.f_591
+
+////////////////////////////////////////////////////////////////////////
+
+ScriptEventHandler
+
+https://www.unknowncheats.me/forum/2744004-post2002.html
+
+https://www.unknowncheats.me/forum/grand-theft-auto-v/144028-grand-theft-auto-reversal-structs-offsets-398.html
+https://www.unknowncheats.me/forum/2751138-post7960.html
+
+
+////////////////////////////////////////////////////////////////////////
+
+TriggerScriptEvent
+
+    using TriggerScriptEvent = int(int eventGroup, uint64_t* args, int argCount, int bitFlags);
+		    TriggerScriptEvent* m_TriggerScriptEvent;
+
+    main_batch.add("TriggerScriptEvent", "48 8B C4 48 89 58 08 48 89 68 10 48 89 70 18 48 89 78 20 41 56 48 81 EC ? ? ? ? 45 8B F0 41 8B F9", [this](memory::handle ptr)
+	{
+		m_TriggerScriptEvent = ptr.as<decltype(m_TriggerScriptEvent)>();
+	});
+
+	if (ImGui::Button("test2"))
+	{
+		uint64_t args[4] = { 1453328116, int0, 0, 0};
+		g_pointers->m_TriggerScriptEvent(1, args, 4, 1 << int0);
+ 
+	}
+
+////////////////////////////////////////////////////////////////////////
+//  Attach Protection
+////////////////////////////////////////////////////////////////////////
+
+	char* objects[136] = { "prop_bskball_01", "PROP_MP_RAMP_03", "PROP_MP_RAMP_02", "PROP_MP_RAMP_01", "PROP_JETSKI_RAMP_01", "PROP_WATER_RAMP_03", "PROP_VEND_SNAK_01", "PROP_TRI_START_BANNER", "PROP_TRI_FINISH_BANNER", "PROP_TEMP_BLOCK_BLOCKER", "PROP_SLUICEGATEL", "PROP_SKIP_08A", "PROP_SAM_01", "PROP_RUB_CONT_01B", "PROP_ROADCONE01A", "PROP_MP_ARROW_BARRIER_01", "PROP_HOTEL_CLOCK_01", "PROP_LIFEBLURB_02", "PROP_COFFIN_02B", "PROP_MP_NUM_1", "PROP_MP_NUM_2", "PROP_MP_NUM_3", "PROP_MP_NUM_4", "PROP_MP_NUM_5", "PROP_MP_NUM_6", "PROP_MP_NUM_7", "PROP_MP_NUM_8", "PROP_MP_NUM_9", "prop_xmas_tree_int", "prop_bumper_car_01", "prop_beer_neon_01", "prop_space_rifle", "prop_dummy_01", "prop_rub_trolley01a", "prop_wheelchair_01_s", "PROP_CS_KATANA_01", "PROP_CS_DILDO_01", "prop_armchair_01", "prop_bin_04a", "prop_chair_01a", "prop_dog_cage_01", "prop_dummy_plane", "prop_golf_bag_01", "prop_arcade_01", "hei_prop_heist_emp", "prop_alien_egg_01", "prop_air_towbar_01", "hei_prop_heist_tug", "prop_air_luggtrolley", "PROP_CUP_SAUCER_01", "prop_wheelchair_01", "prop_ld_toilet_01", "prop_acc_guitar_01", "prop_bank_vaultdoor", "p_v_43_safe_s", "p_spinning_anus_s", "prop_can_canoe", "prop_air_woodsteps", "Prop_weed_01", "prop_a_trailer_door_01", "prop_apple_box_01", "prop_air_fueltrail1", "prop_barrel_02a", "prop_barrel_float_1", "prop_barrier_wat_03b", "prop_air_fueltrail2", "prop_air_propeller01", "prop_windmill_01", "prop_Ld_ferris_wheel", "p_tram_crash_s", "p_oil_slick_01", "p_ld_stinger_s", "p_ld_soc_ball_01", "prop_juicestand", "p_oil_pjack_01_s", "prop_barbell_01", "prop_barbell_100kg", "p_parachute1_s", "p_cablecar_s", "prop_beach_fire", "prop_lev_des_barge_02", "prop_lev_des_barge_01", "prop_a_base_bars_01", "prop_beach_bars_01", "prop_air_bigradar", "prop_weed_pallet", "prop_artifact_01", "prop_attache_case_01", "prop_large_gold", "prop_roller_car_01", "prop_water_corpse_01", "prop_water_corpse_02", "prop_dummy_01", "prop_atm_01", "hei_prop_carrier_docklight_01", "hei_prop_carrier_liferafts", "hei_prop_carrier_ord_03", "hei_prop_carrier_defense_02", "hei_prop_carrier_defense_01", "hei_prop_carrier_radar_1", "hei_prop_carrier_radar_2", "hei_prop_hei_bust_01", "hei_prop_wall_alarm_on", "hei_prop_wall_light_10a_cr", "prop_afsign_amun", "prop_afsign_vbike", "prop_aircon_l_01", "prop_aircon_l_02", "prop_aircon_l_03", "prop_aircon_l_04", "prop_airhockey_01", "prop_air_bagloader", "prop_air_blastfence_01", "prop_air_blastfence_02", "prop_air_cargo_01a", "prop_air_chock_01", "prop_air_chock_03", "prop_air_gasbogey_01", "prop_air_generator_03", "prop_air_stair_02", "prop_amb_40oz_02", "prop_amb_40oz_03", "prop_amb_beer_bottle", "prop_amb_donut", "prop_amb_handbag_01", "prop_amp_01", "prop_anim_cash_pile_02", "prop_asteroid_01", "prop_arm_wrestle_01", "prop_ballistic_shield", "prop_bank_shutter", "prop_barier_conc_02b", "prop_barier_conc_05a", "prop_barrel_01a", "prop_bar_stool_01", "prop_basejump_target_01" };
+
+
+	for (int i = 0; i < 5; i++) {
+		Vector3 coords = ENTITY::GET_ENTITY_COORDS(PLAYER::GET_PLAYER_PED_SCRIPT_INDEX(PLAYER::PLAYER_PED_ID()), 1);
+		GAMEPLAY::CLEAR_AREA_OF_PEDS(coords.x, coords.y, coords.z, 2, 0);
+		GAMEPLAY::CLEAR_AREA_OF_OBJECTS(coords.x, coords.y, coords.z, 2, 0);
+		GAMEPLAY::CLEAR_AREA_OF_VEHICLES(coords.x, coords.y, coords.z, 2, 0, 0, 0, 0, 0);
+		for (int i = 0; i < 136; i++) {
+			Object obj = OBJECT::GET_CLOSEST_OBJECT_OF_TYPE(coords.x, coords.y, coords.z, 4.0, GAMEPLAY::GET_HASH_KEY(objects[i]), 0, 0, 1);
+
+			if (ENTITY::DOES_ENTITY_EXIST(obj) && ENTITY::IS_ENTITY_ATTACHED_TO_ENTITY(obj, PLAYER::GET_PLAYER_PED_SCRIPT_INDEX(PLAYER::PLAYER_PED_ID()))) {
+				RequestControlOfEnt(obj);
+				int netID = NETWORK::NETWORK_GET_NETWORK_ID_FROM_ENTITY(obj);
+				NETWORK::SET_NETWORK_ID_CAN_MIGRATE(netID, 1);
+				LoopFeatures::RequestControlOfid(netID);
+				ENTITY::DETACH_ENTITY(obj, 1, 1);
+				if (NETWORK::NETWORK_HAS_CONTROL_OF_ENTITY(obj)) {
+					ENTITY::SET_ENTITY_AS_MISSION_ENTITY(obj, 1, 1);
+					ENTITY::SET_ENTITY_AS_NO_LONGER_NEEDED(&obj);
+					ENTITY::DELETE_ENTITY(&obj);
+				}
+			}
+		}
+	}
+
+////////////////////////////////////////////////////////////////////////
+//  Crasher
+////////////////////////////////////////////////////////////////////////
+
+// Declare this list somewhere : https://pastebin.com/wNCeKumL
+ 
+if (NETWORK::NETWORK_IS_PLAYER_CONNECTED(tPlayer->Handle) && ENTITY::DOES_ENTITY_EXIST(tPlayer->Ped))
+		{
+			if (Distance::Between(PLAYER::PLAYER_PED_ID(), tPlayer->Ped) < 50.0f)
+			{
+				std::string msg = "Can't proceed because of distance (~b~ " + std::to_string(Distance::Between(PLAYER::PLAYER_PED_ID(), tPlayer->Ped)) + "~w~)";
+				show_notification((char*)msg.c_str());
+				break;
+			}
+ 
+ 
+			for (int i = 0; i < crashObjects.size(); i++)
+			{
+				Vector3 tPos = ENTITY::GET_ENTITY_COORDS(tPlayer->Ped->Pos, 0);
+				Hash rip = $((char*)crashObjects[i].c_str());
+ 
+				std::string tMsg = "[Crasher] : Loading ~p~" + crashObjects[i] + " ~w~ (~r~" + std::to_string(i) + "~w~of ~r~" + std::to_string(crashObjects.size() - 1) + "~w~)";
+				show_subtitle((char*)tMsg.c_str(), 2500);
+				Object fucker = CREATE_OBJECT_WITH_ROTATION_2(rip, tPos.x, tPos.y, tPos.z, 0.0f, 0.0f, 0.0f, 0.0f, false, true);
+ 
+				if (fucker == NULL)
+				{
+					std::string tMsg = "[Crasher] : ERROR with ~p~" + crashObjects[i] + " ~w~ (~r~" + std::to_string(i) + "~w~of ~r~" + std::to_string(crashObjects.size() - 1) + "~w~)";
+					show_subtitle((char*)tMsg.c_str(), 2500);
+					WAIT(500);
+					continue;
+				}
+ 
+				ENTITY::SET_ENTITY_AS_MISSION_ENTITY(fucker, true, true);
+				ENTITY::ATTACH_ENTITY_TO_ENTITY(fucker, tPlayer->Ped, PED::GET_PED_BONE_INDEX(tPlayer->Ped, SKEL_Spine_Root), 0.0, 0.0, 0.0, 0.0, 90.0, 0, false, false, false, false, 2, true);
+				spawnedCrashObjects.push_back(fucker);
+				//WAIT(5);
+ 
+				std::string sMsg = "[Crasher] : Spawning ~p~" + crashObjects[i] + " ~w~ (~r~" + std::to_string(i) + "~w~of ~r~" + std::to_string(crashObjects.size() - 1) + "~w~)";
+				show_subtitle((char*)sMsg.c_str(), 2500);
+			}
+ 
+			WAIT(100);
+ 
+			for (int i = 0; i < spawnedCrashObjects.size(); i++)
+			{
+				if (ENTITY::IS_ENTITY_A_MISSION_ENTITY(spawnedCrashObjects[i]))
+				{
+					ENTITY::SET_ENTITY_AS_NO_LONGER_NEEDED(&spawnedCrashObjects[i]);
+				}
+				ENTITY::DELETE_ENTITY(&spawnedCrashObjects[i]);
+				WAIT(5);
+				if (ENTITY::DOES_ENTITY_EXIST(spawnedCrashObjects[i]))
+				{
+					std::string sMsg = "[Crasher] : Can't delete ~p~" + crashObjects[i] + " ~w~ (~r~" + std::to_string(i) + "~w~of ~r~" + std::to_string(crashObjects.size() - 1) + "~w~)";
+					show_subtitle((char*)sMsg.c_str(), 2500);
+				}
+				else
+				{
+					std::string sMsg = "[Crasher] : Removing ~p~" + crashObjects[i] + " ~w~ (~r~" + std::to_string(i) + "~w~of ~r~" + std::to_string(crashObjects.size() - 1) + "~w~)";
+					show_subtitle((char*)sMsg.c_str(), 2500);
+				}
+			}
+ 
+			WAIT(100);
+			spawnedCrashObjects.clear();
+ 
+			Vector3 tPos = ENTITY::GET_ENTITY_COORDS(tPlayer->Ped, 0);
+			GAMEPLAY::CLEAR_AREA_OF_OBJECTS(tPos.x, tPos.y, tPos.z, 20.0f, 0);
+			GAMEPLAY::CLEAR_AREA_OF_OBJECTS(tPos.x, tPos.y, tPos.z, 20.0f, 2);
+			GAMEPLAY::CLEAR_AREA_OF_OBJECTS(tPos.x, tPos.y, tPos.z, 20.0f, 16);
+			GAMEPLAY::CLEAR_AREA_OF_OBJECTS(tPos.x, tPos.y, tPos.z, 20.0f, 17);		
+			std::string	msg = "Player <C>" + tPlayer->Name + "</C> crashed";
+			show_notification((char*)msg.c_str());
+		}
