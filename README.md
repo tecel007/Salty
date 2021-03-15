@@ -30,6 +30,7 @@ All script, net and sync events and natives are logged in csv format.
 - bad datbitbuffer crash signatures
 - bad script events
 - flooding / bad net events
+- can forcibly stop all session transitions by blocking "MainTransition"
 
 ## Menus
 
