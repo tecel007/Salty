@@ -2,11 +2,11 @@
 
 Salty is a protection only, BBv2 derived menu. I'm releasing this now because i don't have time to keep up with new attacks and GTAV has become so toxic it't not enjoyable to play anymore.  Thankfully GTAVI is just around the corner.  So here is my code.  Have fun!
 
-## native logging
+## Native logging
 
 Logger.cpp readsis a configurable logging system for GTAV natives.  It reads natives.hpp and produces natives_logging.hpp/cpp.   These natives are then hooked and logged at runtime.  It removescan be configured to log namespaces, remove spam/common massages and also ignore some debugging natives which cant be hooke as they crash.  Really useful to see what is happing in the scripts.
 
-## protections
+## Protections
 
 - model crashes... -> can be blocked in the databitbuffer or by scanning the netsyncobject
 - invalid owner
@@ -29,7 +29,7 @@ Logger.cpp readsis a configurable logging system for GTAV natives.  It reads nat
 - bad script events
 - flooding / bad net events
 
-## hooks used
+## Hooks
 
 - functions::buffer_int_t m_buffer_int{};
 - functions::clone_pack_t m_clone_pack{};
@@ -52,7 +52,7 @@ Logger.cpp readsis a configurable logging system for GTAV natives.  It reads nat
 - functions::get_network_object_t m_get_network_object{};  
 - rage::CReplayInterface* m_replay{};
 
-## thanks to
+## Thanks
 
 - MIKE#6623/imabignumber (discord)
 - Entrodor Wolfry#3502 (discord)
@@ -61,7 +61,7 @@ Logger.cpp readsis a configurable logging system for GTAV natives.  It reads nat
 - Chrizzi (UC)
 - pelecanidae (UC)
 
-## derived from
+## Skid
 
  - https://github.com/Sainan/GTA-V-Decompiled-Scripts
  - https://github.com/Pocakking/BigBaseV2
