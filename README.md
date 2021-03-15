@@ -63,7 +63,6 @@ Logger.cpp readsis a configurable logging system for GTAV natives.  It reads nat
 
 ## Skid
 
- - https://github.com/Sainan/GTA-V-Decompiled-Scripts
  - https://github.com/Pocakking/BigBaseV2
  - https://github.com/1337Nexo/BigBaseV2
  - https://bitbucket.org/gir489/bigbasev2-fix/src/master/
