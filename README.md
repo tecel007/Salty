@@ -31,6 +31,9 @@ Logger.cpp readsis a configurable logging system for GTAV natives.  It reads nat
 
 ## Menus
 
+Protections against
+
+- 2Take1
 - Luna
 - Impulse
 - Disturbed
