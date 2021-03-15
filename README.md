@@ -16,7 +16,7 @@ All script, net and sync events and natives are logged in csv format.
 - invaid object type - sending boat sync events to a car and also invalid object types on create
 - invaid acks to wrong player, wrong ower invalid object 
 - removing other players objects or player id's
-- protocol errors - messages depending on player objectss before object is created
+- protocol errors - out of sequence messages / messages depending on player before object is created
 - sync/net event flooding
 - creating multiple objects with the same object id
 - sending sync events to objects you dont own
