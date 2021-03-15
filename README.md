@@ -1,6 +1,6 @@
 # Salty
 
-Salty is a protection only, BBv2 derived menu. I'm releasing this now because i don't have time to keep up with new attacks and GTAV has become so toxic it't not enjoyable to play anymore.  Thankfully GTAVI is just around the corner.  So here is my code.  Have fun!
+Salty is a protection only, BBv2 derived GTAV menu. I'm releasing this now because i don't have time to keep up with new attacks and GTAV has become so toxic it't not enjoyable to play anymore.  Thankfully GTAVI is just around the corner.  So here is my code.  Have fun!
 
 ## Native logging
 
