@@ -10,7 +10,7 @@ All script, net and sync events and natives are logged in csv format.
 
 ## Protections
 
-- model crashes... -> can be blocked in the databitbuffer or by scanning the netsyncobject
+- model crashes
 - invalid owner
 - invalid object id
 - invaid object type - sending boat sync events to a car and also invalid object types on create
@@ -26,10 +26,10 @@ All script, net and sync events and natives are logged in csv format.
 - sync_buffer_read overflow and underflow
 - invalid sync time
 - garbage in the datbitbuffer
-- exception catch all handling on all hooks
-- bad datbitbuffer crash signatures
-- bad script events
-- flooding / bad net events
+- structured exception handling on all hooks
+- crash signatures in datbitbuffer
+- bad script events / flooding
+- bad net events / flooding
 - can forcibly stop all session transitions by blocking "MainTransition"
 
 ## Menus
