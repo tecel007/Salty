@@ -8,24 +8,23 @@ Logger.cpp readsis a configurable logging system for GTAV natives.  It reads nat
 
 All script, net and sync events and natives are logged in csv format.
 
-## Protections
+## Protections (crashes)
 
 - model crashes
 - sync/ack events - invalid owner
 - sync/ack events - invalid object id
 - sync/ack events - invalid time random or backwards in time
+- sync/ack events - to objects you dont own - or nor existant
 - sync create - invaid object type
-- sync events - wrong synctree type - sending boat sync trees to car
-- invalid acks - wrong player, wrong ower or invalid object id 
-- removing other players objects or player id's
-- protocol errors - out of sequence messages / messages depending on player before object is created
-- protocol errors - creating peds/objects before player object
-- sync/net event flooding
+- sync create - flooding with the sync_flag == 4 - script objects
+- sync create - multiple objects in the same location
 - sync create - duplicate objects id or other playes objects
-- sending sync/ack events to objects you dont own - or nor existant
-- creating multiple objects in the same location
-- sync events - flooding with the sync_flag == 4 - script objects
-- creating too many objects in your bubble_id
+- sync create - creating too many objects in your bubble_id
+- sync events - wrong synctree type - sending boat sync trees to car
+- sync remove - removing other players objects or player id's
+- sync acks - wrong player, wrong ower or invalid object id 
+- protocol errors - out of sequence messages / messages depending on player before player object is created
+- protocol errors - creating peds/objects before player object
 - sync_buffer_read overflow and underflow
 - garbage in the datbitbuffer
 - structured exception handling on all hooks
