@@ -1,6 +1,6 @@
 # Salty
 
-Salty is a protection only menu.  This is a different approach to modding GTAV - all of the protections are in C++.  
+Salty is a protection only, BBv2 derived menu.  All of the protections are in C++ because im not an IDA expert.  Im realsing this now because GTAV is so toxic I'm not enjoying playing anymore.  Keeping up with new attacks is a fulltime job and I dont have time these days.  Thankfully GTAVI is just around the corner and I can't wait to play with shiny new toys.  So here is my code.  Have fun!
 
 ## native logging
 
