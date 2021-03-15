@@ -23,7 +23,7 @@ All script, net and sync events and natives are logged in csv format.
 - creating multiple objects in the same location
 - flooding "sync create events" with the sync_flag == 4? from memory
 - creating too many objects in your bubble_id
-- sync_buffer_read overflow AND underflow
+- sync_buffer_read overflow and underflow
 - invalid sync time
 - garbage in the datbitbuffer
 - exception catch all handling on all hooks
