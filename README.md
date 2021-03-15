@@ -81,3 +81,8 @@ Previously 100% protected from
  - https://github.com/1337Nexo/BigBaseV2
  - https://bitbucket.org/gir489/bigbasev2-fix/src/master/
   
+## Contact
+
+- tecel007#9031 (discord)
+- WhatAJoke (GTAV)
+- tecel007 (GTAV)
