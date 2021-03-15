@@ -4,7 +4,7 @@ Salty is a protection only, BBv2 derived menu. I'm releasing this now because i 
 
 ## Native logging
 
-Logger.cpp readsis a configurable logging system for GTAV natives.  It reads natives.hpp and produces natives_logging.hpp/cpp.   These natives are then hooked and logged at runtime.  It removescan be configured to log namespaces, remove spam/common massages and also ignore some debugging natives which cant be hooke as they crash.  Really useful to see what is happing in the scripts.
+Logger.cpp readsis a configurable logging system for GTAV natives.  It reads natives.hpp and produces natives_logging.hpp/cpp.   These natives are then hooked and logged at runtime.  It removescan be configured to log namespaces, remove spam/common massages and also ignore some debugging natives which cant be hooke as they crash.  Really useful to see what is happing in the scripts.  Process.cpp processes the log file (csv format).  This is useful to block message flodding...
 
 ## Protections
 
