@@ -11,20 +11,22 @@ All script, net and sync events and natives are logged in csv format.
 ## Protections
 
 - model crashes
-- invalid owner
-- invalid object id
-- invaid object type - sending boat sync events to a car and also invalid object types on create
-- invaid acks to wrong player, wrong ower invalid object 
+- sync/ack events - invalid owner
+- sync/ack events - invalid object id
+- sync/ack events - invalid time random or backwards in time
+- sync create - invaid object type
+- sync events - wrong synctree type - sending boat sync trees to car
+- invalid acks - wrong player, wrong ower or invalid object id 
 - removing other players objects or player id's
 - protocol errors - out of sequence messages / messages depending on player before object is created
+- protocol errors - creating peds/objects before player object
 - sync/net event flooding
-- creating multiple objects with the same object id
-- sending sync events to objects you dont own
+- sync create - duplicate objects id or other playes objects
+- sending sync/ack events to objects you dont own - or nor existant
 - creating multiple objects in the same location
-- flooding "sync create events" with the sync_flag == 4? from memory
+- sync events - flooding with the sync_flag == 4 - script objects
 - creating too many objects in your bubble_id
 - sync_buffer_read overflow and underflow
-- invalid sync time
 - garbage in the datbitbuffer
 - structured exception handling on all hooks
 - crash signatures in datbitbuffer
