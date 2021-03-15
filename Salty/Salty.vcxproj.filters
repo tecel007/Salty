@@ -94,9 +94,6 @@
     <ClInclude Include="src\hooking.hpp">
       <Filter>menu</Filter>
     </ClInclude>
-    <ClInclude Include="src\gta\structs.hpp">
-      <Filter>gta</Filter>
-    </ClInclude>
     <ClInclude Include="src\gui\crash.hpp">
       <Filter>menu</Filter>
     </ClInclude>
@@ -180,6 +177,9 @@
     </ClInclude>
     <ClInclude Include="src\gta\invite.hpp">
       <Filter>gta</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gta\structs.hpp">
+      <Filter>menu</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
