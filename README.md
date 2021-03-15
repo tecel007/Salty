@@ -15,7 +15,7 @@ All script, net and sync events and natives are logged in csv format.
 - sync/ack events - invalid object id
 - sync/ack events - invalid time random or backwards in time
 - sync/ack events - to objects you dont own - or nor existant
-- sync create - invaid object type
+- sync create - invalid object type
 - sync create - flooding with the sync_flag == 4 - script objects
 - sync create - multiple objects in the same location
 - sync create - duplicate objects id or other playes objects
