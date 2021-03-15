@@ -67,6 +67,10 @@ Previously 100% protected from
 - functions::get_network_object_t m_get_network_object{};  
 - rage::CReplayInterface* m_replay{};
 
+## Todo
+
+- There are loads of other things i've played with that aren't in the code anymore.  Parsing netsynctrees, scrapping read32 for hashes, scrapping in memory objects for hashes, trying to reverse the network protocol directly.  There endless possibilities, but they all take time...
+- 
 ## Thanks
 
 - MIKE#6623/imabignumber (discord)
