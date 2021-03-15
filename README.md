@@ -18,7 +18,7 @@ All script, net and sync events and natives are logged in csv format.
 - sync create - invalid object type
 - sync create - flooding with the sync_flag == 4 - script objects
 - sync create - multiple objects in the same location
-- sync create - duplicate objects id or other playes objects
+- sync create - duplicate objects id or other players objects
 - sync create - creating too many objects in your bubble_id
 - sync events - wrong synctree type - sending boat sync trees to car
 - sync remove - removing other players objects or player id's
