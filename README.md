@@ -1,30 +1,32 @@
 # Salty
 
-Salty is a protection only, BBv2 derived GTAV menu. I'm releasing this now because i don't have time to keep up with new attacks and GTAV has become so toxic it's not enjoyable to play anymore.  Thankfully GTA6 is just around the corner.  So here is my code.  Have fun!
+Salty is a protection only, BBv2 derived GTAV menu. I'm releasing this now because i don't have time to keep up with new attacks and GTAV has become so toxic it's not enjoyable anymore.  Thankfully GTA6 is just around the corner.  So here is my code.  Have fun!
 
 ## Native logging
 
-Logger.cpp readsis a configurable logging system for GTAV natives.  It reads natives.hpp and produces natives_logging.hpp/cpp.   These natives are then hooked and logged at runtime.  It can be configured to log namespaces, remove spam/common massages and also ignore some debugging natives which cant be hooked as they crash.  Really useful to see what is happing in the scripts.  Process.cpp processes the log file which is useful to fine tune what natives are logged to remove unwanted noise.
+Logger.cpp is a configurable logging system for GTAV natives.  It reads natives.hpp and produces natives_logging.hpp/cpp.   These natives are then hooked and logged at runtime.  It can be configured to log namespaces, remove spam/common massages and also ignore some debugging natives which cant be hooked as they crash.  Really useful to see what is happing in the scripts.  Process.cpp processes the log file which is useful to fine tune what natives are logged to remove unwanted noise.
 
 All script, net and sync events and natives are logged in csv format.
 
-## Protections
+## Protections (crashes)
 
 - model crashes
-- invalid owner
-- invalid object id
-- invaid object type - sending boat sync events to a car and also invalid object types on create
-- invaid acks to wrong player, wrong ower invalid object 
-- removing other players objects or player id's
-- protocol errors - out of sequence messages / messages depending on player before object is created
-- sync/net event flooding
-- creating multiple objects with the same object id
-- sending sync events to objects you dont own
-- creating multiple objects in the same location
-- flooding "sync create events" with the sync_flag == 4? from memory
-- creating too many objects in your bubble_id
+- sync/ack events - invalid owner
+- sync/ack events - invalid object id
+- sync/ack events - invalid time random or backwards in time
+- sync/ack events - to objects you dont own - or nor existant
+- sync events - wrong synctree type - sending boat sync trees to car
+- sync create - invalid object type
+- sync create - flooding with the sync_flag == 4 - script objects
+- sync create - multiple objects in the same location
+- sync create - duplicate objects id or other players objects
+- sync create - creating too many objects in your bubble_id
+- sync create - attach or proximity
+- sync remove/ack events - removing other players objects or player id's
+- sync acks - wrong player, wrong ower or invalid object id 
+- protocol errors - out of sequence messages / messages depending on player before player object is created
+- protocol errors - creating peds/objects before player object
 - sync_buffer_read overflow and underflow
-- invalid sync time
 - garbage in the datbitbuffer
 - structured exception handling on all hooks
 - crash signatures in datbitbuffer
@@ -81,3 +83,6 @@ Previously 100% protected from
  - https://github.com/1337Nexo/BigBaseV2
  - https://bitbucket.org/gir489/bigbasev2-fix/src/master/
   
+## Contact
+
+- tecel007#9031 (discord)
