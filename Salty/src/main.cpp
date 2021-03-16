@@ -140,8 +140,8 @@ BOOL APIENTRY DllMain(HMODULE hmod, DWORD reason, PVOID)
 	{
 		//HookDLL("WS2_32.dll", "N/A", send_ordinal, send_old, 0);
 		//HookDLL("WS2_32.dll", "N/A", recv_ordinal, recv_old, 0);
-		HookDLL("WS2_32.dll", "N/A", sendto_ordinal, sendto_old, 0);
-		HookDLL("WS2_32.dll", "N/A", recvfrom_ordinal, recvfrom_old, 0);
+		//HookDLL("WS2_32.dll", "N/A", sendto_ordinal, sendto_old, 0);
+		//HookDLL("WS2_32.dll", "N/A", recvfrom_ordinal, recvfrom_old, 0);
 	}
 	else if (reason == DLL_PROCESS_ATTACH)
 	{
@@ -159,8 +159,8 @@ BOOL APIENTRY DllMain(HMODULE hmod, DWORD reason, PVOID)
 
 				//HookDLL("WS2_32.dll", "N/A", send_ordinal, send_new, (PVOID*)&send_old);
 				//HookDLL("WS2_32.dll", "N/A", recv_ordinal, recv_new, (PVOID*)&recv_old);
-				HookDLL("WS2_32.dll", "N/A", sendto_ordinal, sendto_new, (PVOID*)&sendto_old);
-				HookDLL("WS2_32.dll", "N/A", recvfrom_ordinal, recvfrom_new, (PVOID*)&recvfrom_old);
+				//HookDLL("WS2_32.dll", "N/A", sendto_ordinal, sendto_new, (PVOID*)&sendto_old);
+				//HookDLL("WS2_32.dll", "N/A", recvfrom_ordinal, recvfrom_new, (PVOID*)&recvfrom_old);
 
 				LOG(RAW_GREEN_TO_CONSOLE) << u8R"kek(
   _________      .__   __             ____________________________   ____
