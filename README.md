@@ -69,7 +69,7 @@ Previously 100% protected from
 
 ## Todo
 
-- There are loads of other things i've played with that aren't in the code anymore.  Parsing netsynctrees, scrapping read32 for hashes, scrapping memory objects for hashes, trying to reverse the network protocol directly.  There endless possibilities, but they all take time...
+- There are loads of other things i've played with that aren't in the code anymore.  Parsing netsynctrees, scraping read32 for hashes, scraping memory objects for hashes, trying to reverse the network protocol directly.  There endless possibilities, but they all take time...
 
 ## Thanks
 
