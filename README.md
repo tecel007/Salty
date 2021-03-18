@@ -87,7 +87,6 @@ Previously 100% protected from
 ## Skid
 
  - https://github.com/Pocakking/BigBaseV2
- - https://github.com/1337Nexo/BigBaseV2
  - https://bitbucket.org/gir489/bigbasev2-fix/src/master/
   
 ## Contact
