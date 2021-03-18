@@ -67,6 +67,10 @@ Previously 100% protected from
 - functions::get_network_object_t m_get_network_object{};  
 - rage::CReplayInterface* m_replay{};
 
+## Patterns
+
+- This code is for the steam version of GTAV only
+- 
 ## Todo
 
 - There are loads of other things i've played with that aren't in the code anymore.  Parsing netsynctrees, scraping read32 for hashes, scraping memory objects for hashes, trying to reverse the network protocol directly.  There endless possibilities, but they all take time...
