@@ -70,7 +70,7 @@ Previously 100% protected from
 ## Patterns
 
 - This code is for the steam version of GTAV only
-- 
+
 ## Todo
 
 - There are loads of other things i've played with that aren't in the code anymore.  Parsing netsynctrees, scraping read32 for hashes, scraping memory objects for hashes, trying to reverse the network protocol directly.  There endless possibilities, but they all take time...
