@@ -229,7 +229,7 @@ namespace big::misc
 		//source is valid
 		if (src != nullptr 
 			//&& src->is_valid() 
-			&& src->get_net_data()->m_rockstar_id != gta_util::get_local_playerinfo()->m_rockstar_id 
+			//&& src->get_net_data()->m_rockstar_id != gta_util::get_local_playerinfo()->m_rockstar_id 
 			//&& src->get_net_data()->m_host_token > (1 << 16)
 			//&& src->get_net_data()->m_online_port == 6672
 			)

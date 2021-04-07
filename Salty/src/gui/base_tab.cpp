@@ -8,7 +8,6 @@
 // https://github.com/Sainan/GTA-V-Decompiled-Scripts
 // 
 // https://github.com/Pocakking/BigBaseV2
-// https://github.com/1337Nexo/BigBaseV2
 // https://bitbucket.org/gir489/bigbasev2-fix/src/master/
 // https://wiki.rage.mp/index.php?title=Category:Assets
 // https://github.com/MAFINS/MenyooSP

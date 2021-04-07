@@ -29,7 +29,7 @@ namespace big
 
 		uint8_t* m_incompatible_version{};
 
-		functions::buffer_int_t m_buffer_int{};
+		//functions::buffer_int_t m_buffer_int{};
 		functions::clone_pack_t m_clone_pack{};
 		functions::clone_create_t m_clone_create{};
 		functions::clone_sync_t m_clone_sync{};

@@ -16,6 +16,7 @@
 #include "gui/misc.h"
 #include "gui.hpp"
 #include "gui/features.hpp"
+#include "gui/natives_logging.hpp"
 
 namespace big
 {
@@ -660,27 +661,27 @@ namespace big
 		}
 	}
 
-	static void buffer_int(rage::datBitBuffer* buffer, uint32_t* value, int32_t length, int32_t index)
-	{
-		__try
-		{
-			g_hooking->m_buffer_int_hook.get_original<functions::buffer_int_t>()(buffer, value, length, index);
+	//static void buffer_int(rage::datBitBuffer* buffer, uint32_t* value, int32_t length, int32_t index)
+	//{
+	//	__try
+	//	{
+	//		g_hooking->m_buffer_int_hook.get_original<functions::buffer_int_t>()(buffer, value, length, index);
 
-			if (big::features::protection && big::features::injected)
-			{
-				if (length == 32)
-				{
-					misc::log_buff(LOG_BUFF, sync_type, sync_object_type, index, length, *value, false, "OK");
-				}
-			}
-		}
-		__except (EXCEPTION_EXECUTE_HANDLER)
-		{
-			features::sync++;
-			misc::log_buff(LOG_EXCEPTION, sync_type, sync_object_type, index, length, 0, true, "BLOCKED_EXCEPTION");
-			misc::block_user(sync_src, true);
-		}
-	}
+	//		if (big::features::protection && big::features::injected)
+	//		{
+	//			if (length == 32)
+	//			{
+	//				misc::log_buff(LOG_BUFF, sync_type, sync_object_type, index, length, *value, false, "OK");
+	//			}
+	//		}
+	//	}
+	//	__except (EXCEPTION_EXECUTE_HANDLER)
+	//	{
+	//		features::sync++;
+	//		misc::log_buff(LOG_EXCEPTION, sync_type, sync_object_type, index, length, 0, true, "BLOCKED_EXCEPTION");
+	//		misc::block_user(sync_src, true);
+	//	}
+	//}
 
 	static GtaThread *find_script_thread(rage::joaat_t hash)
 	{
@@ -706,7 +707,7 @@ namespace big
 		m_clone_sync_hook("m_clone_sync_hook", g_pointers->m_clone_sync, &clone_sync),
 		m_clone_remove_hook("m_clone_remove_hook", g_pointers->m_clone_remove, &clone_remove),
 		m_clone_pack_hook("m_clone_pack_hook", g_pointers->m_clone_pack, &clone_pack),
-		m_buffer_int_hook("m_buffer_int_hook", g_pointers->m_buffer_int, &buffer_int),
+		//m_buffer_int_hook("m_buffer_int_hook", g_pointers->m_buffer_int, &buffer_int),
 		m_sync_can_apply_hook("netSyncTree_CanApplyToObject", g_pointers->m_sync_can_apply, &sync_can_apply),
 
 		m_sync_read_hook("netSyncTree_ReadFromBuffer", g_pointers->m_sync_read, &sync_read),
@@ -766,6 +767,10 @@ namespace big
 		ensure_dynamic_hooks();
 
 		for (auto native : misc::natives_replace)
+		{
+			m_native.emplace(native.first, native.second);
+		}
+		for (auto native : misc::natives_logging)
 		{
 			m_native.emplace(native.first, native.second);
 		}

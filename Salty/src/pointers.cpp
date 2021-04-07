@@ -75,10 +75,10 @@ namespace big
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		main_batch.add("_netBuffer_ReadUnsigned", "41 83 E1 07 45 8B D8 49 C1 FA 03 BB 08 00 00 00", [this](memory::handle ptr)
-		{
-			m_buffer_int = ptr.sub(0x12).as<functions::buffer_int_t>();
-		});
+		//main_batch.add("_netBuffer_ReadUnsigned", "41 83 E1 07 45 8B D8 49 C1 FA 03 BB 08 00 00 00", [this](memory::handle ptr)
+		//{
+		//	m_buffer_int = ptr.sub(0x12).as<functions::buffer_int_t>();
+		//});
 
 		main_batch.add("m_clone_pack", "48 89 5c 24 ? 48 89 6c 24 ? 48 89 74 24 ? 57 48 83 ec ? 48 8b f9 48 8b ca 49 8b e9", [this](memory::handle ptr)
 		{

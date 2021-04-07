@@ -62,7 +62,7 @@ namespace big
 		detour_hook m_script_event_hook;
 		//detour_hook m_game_invite_hook;
 
-		detour_hook m_buffer_int_hook;
+		//detour_hook m_buffer_int_hook;
 
 		std::list<script_hook*> m_native_hook;
 		std::unordered_map<rage::scrNativeHash, rage::scrNativeHandler> m_native;
