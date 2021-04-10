@@ -32,6 +32,7 @@ All script, net and sync events and natives are logged in csv format.
 - bad script events / flooding
 - bad net events / flooding
 - can forcibly stop all session transitions by blocking "MainTransition"
+- DoS attacks
 
 ## Menus
 
