@@ -23,7 +23,7 @@ All script, net and sync events and natives are logged in csv format.
 - sync create - attach or proximity
 - sync remove/ack events - removing other players objects or player id's
 - sync acks - wrong player, wrong ower or invalid object id 
-- protocol errors - out of sequence messages / messages depending on player before player object is created
+- protocol errors - out of sequence messages depending on player before player object is created
 - protocol errors - creating peds/objects before player object
 - sync_buffer_read overflow and underflow
 - garbage in the datbitbuffer
