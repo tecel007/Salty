@@ -78,7 +78,6 @@ Previously 100% protected from
 
 ## Thanks
 
-- MIKE#6623/imabignumber (discord)
 - Entrodor Wolfry#3502 (discord)
 - Pocakking (UC)
 - polivilas (UC)
