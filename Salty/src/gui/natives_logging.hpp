@@ -1,0 +1,128 @@
+#pragma once
+
+#include "natives.hpp"
+
+namespace big::misc
+{
+	extern void APPLY_FORCE_TO_ENTITY(rage::scrNativeCallContext* src);
+	extern void ATTACH_ENTITY_TO_ENTITY(rage::scrNativeCallContext* src);
+	extern void _ATTACH_ENTITY_BONE_TO_ENTITY_BONE(rage::scrNativeCallContext* src);
+	extern void _ATTACH_ENTITY_BONE_TO_ENTITY_BONE_PHYSICALLY(rage::scrNativeCallContext* src);
+	extern void ATTACH_ENTITY_TO_ENTITY_PHYSICALLY(rage::scrNativeCallContext* src);
+	extern void PROCESS_ENTITY_ATTACHMENTS(rage::scrNativeCallContext* src);
+	extern void SET_ENTITY_CAN_BE_DAMAGED(rage::scrNativeCallContext* src);
+	extern void SET_ENTITY_HEALTH(rage::scrNativeCallContext* src);
+	extern void ADD_EXPLOSION(rage::scrNativeCallContext* src);
+	extern void ADD_OWNED_EXPLOSION(rage::scrNativeCallContext* src);
+	extern void ADD_EXPLOSION_WITH_USER_VFX(rage::scrNativeCallContext* src);
+	extern void START_PARTICLE_FX_NON_LOOPED_AT_COORD(rage::scrNativeCallContext* src);
+	extern void START_PARTICLE_FX_NON_LOOPED_ON_PED_BONE(rage::scrNativeCallContext* src);
+	extern void START_PARTICLE_FX_NON_LOOPED_ON_ENTITY(rage::scrNativeCallContext* src);
+	extern void START_PARTICLE_FX_LOOPED_AT_COORD(rage::scrNativeCallContext* src);
+	extern void START_PARTICLE_FX_LOOPED_ON_PED_BONE(rage::scrNativeCallContext* src);
+	extern void START_PARTICLE_FX_LOOPED_ON_ENTITY(rage::scrNativeCallContext* src);
+	extern void START_PARTICLE_FX_LOOPED_ON_ENTITY_BONE(rage::scrNativeCallContext* src);
+	extern void SET_FAKE_WANTED_LEVEL(rage::scrNativeCallContext* src);
+	extern void SET_GRAVITY_LEVEL(rage::scrNativeCallContext* src);
+	extern void CREATE_INCIDENT(rage::scrNativeCallContext* src);
+	extern void CREATE_INCIDENT_WITH_ENTITY(rage::scrNativeCallContext* src);
+	extern void ATTACH_PORTABLE_PICKUP_TO_PED(rage::scrNativeCallContext* src);
+	extern void SET_PED_DIES_IN_WATER(rage::scrNativeCallContext* src);
+	extern void SET_PED_DIES_IN_SINKING_VEHICLE(rage::scrNativeCallContext* src);
+	extern void SET_PED_CAN_BE_TARGETTED(rage::scrNativeCallContext* src);
+	extern void SET_PED_MAX_TIME_UNDERWATER(rage::scrNativeCallContext* src);
+	extern void SET_PED_TO_RAGDOLL(rage::scrNativeCallContext* src);
+	extern void SET_PED_TO_RAGDOLL_WITH_FALL(rage::scrNativeCallContext* src);
+	extern void SET_PED_RAGDOLL_ON_COLLISION(rage::scrNativeCallContext* src);
+	extern void SET_PED_RAGDOLL_FORCE_FALL(rage::scrNativeCallContext* src);
+	extern void ADD_PED_DECORATION_FROM_HASHES(rage::scrNativeCallContext* src);
+	extern void ADD_PED_DECORATION_FROM_HASHES_IN_CORONA(rage::scrNativeCallContext* src);
+	extern void ATTACH_SYNCHRONIZED_SCENE_TO_ENTITY(rage::scrNativeCallContext* src);
+	extern void ATTACH_ENTITIES_TO_ROPE(rage::scrNativeCallContext* src);
+	extern void ATTACH_ROPE_TO_ENTITY(rage::scrNativeCallContext* src);
+	extern void SET_PLAYER_WANTED_LEVEL(rage::scrNativeCallContext* src);
+	extern void SET_PLAYER_WANTED_LEVEL_NO_DROP(rage::scrNativeCallContext* src);
+	extern void SET_PLAYER_WANTED_LEVEL_NOW(rage::scrNativeCallContext* src);
+	extern void _SET_PLAYER_INVINCIBLE_KEEP_RAGDOLL_ENABLED(rage::scrNativeCallContext* src);
+	extern void DISABLE_PLAYER_FIRING(rage::scrNativeCallContext* src);
+	extern void SET_PLAYER_WEAPON_DAMAGE_MODIFIER(rage::scrNativeCallContext* src);
+	extern void SET_PLAYER_WEAPON_DEFENSE_MODIFIER(rage::scrNativeCallContext* src);
+	extern void SET_PLAYER_MELEE_WEAPON_DAMAGE_MODIFIER(rage::scrNativeCallContext* src);
+	extern void SET_PLAYER_MELEE_WEAPON_DEFENSE_MODIFIER(rage::scrNativeCallContext* src);
+	extern void TASK_LEAVE_ANY_VEHICLE(rage::scrNativeCallContext* src);
+	extern void CLEAR_PED_SECONDARY_TASK(rage::scrNativeCallContext* src);
+	extern void SET_VEHICLE_TYRE_BURST(rage::scrNativeCallContext* src);
+	extern void SET_VEHICLE_ALARM(rage::scrNativeCallContext* src);
+	extern void START_VEHICLE_ALARM(rage::scrNativeCallContext* src);
+	extern void SET_VEHICLE_CAN_BE_TARGETTED(rage::scrNativeCallContext* src);
+	extern void SET_VEHICLE_CAN_BE_VISIBLY_DAMAGED(rage::scrNativeCallContext* src);
+	extern void SET_VEHICLE_DIRT_LEVEL(rage::scrNativeCallContext* src);
+	extern void SET_VEHICLE_ENGINE_ON(rage::scrNativeCallContext* src);
+	extern void SET_VEHICLE_ENGINE_HEALTH(rage::scrNativeCallContext* src);
+	extern void SET_VEHICLE_ENGINE_CAN_DEGRADE(rage::scrNativeCallContext* src);
+	extern void _SET_VEHICLE_WEAPONS_DISABLED(rage::scrNativeCallContext* src);
+	extern void REMOVE_ALL_PED_WEAPONS(rage::scrNativeCallContext* src);
+	extern void REMOVE_WEAPON_FROM_PED(rage::scrNativeCallContext* src);
+	static std::unordered_map<rage::scrNativeHash, rage::scrNativeHandler> natives_logging = 
+	{
+		{0xC5F68BE9613E2D18, &APPLY_FORCE_TO_ENTITY},
+		{0x6B9BBD38AB0796DF, &ATTACH_ENTITY_TO_ENTITY},
+		{0x5C48B75732C8456C, &_ATTACH_ENTITY_BONE_TO_ENTITY_BONE},
+		{0xFD1695C5D3B05439, &_ATTACH_ENTITY_BONE_TO_ENTITY_BONE_PHYSICALLY},
+		{0xC3675780C92F90F9, &ATTACH_ENTITY_TO_ENTITY_PHYSICALLY},
+		{0xF4080490ADC51C6F, &PROCESS_ENTITY_ATTACHMENTS},
+		{0x1760FFA8AB074D66, &SET_ENTITY_CAN_BE_DAMAGED},
+		{0x6B76DC1F3AE6E6A3, &SET_ENTITY_HEALTH},
+		{0xE3AD2BDBAEE269AC, &ADD_EXPLOSION},
+		{0x172AA1B624FA1013, &ADD_OWNED_EXPLOSION},
+		{0x36DD3FE58B5E5212, &ADD_EXPLOSION_WITH_USER_VFX},
+		{0x25129531F77B9ED3, &START_PARTICLE_FX_NON_LOOPED_AT_COORD},
+		{0x0E7E72961BA18619, &START_PARTICLE_FX_NON_LOOPED_ON_PED_BONE},
+		{0x0D53A3B8DA0809D2, &START_PARTICLE_FX_NON_LOOPED_ON_ENTITY},
+		{0xE184F4F0DC5910E7, &START_PARTICLE_FX_LOOPED_AT_COORD},
+		{0xF28DA9F38CD1787C, &START_PARTICLE_FX_LOOPED_ON_PED_BONE},
+		{0x1AE42C1660FD6517, &START_PARTICLE_FX_LOOPED_ON_ENTITY},
+		{0xC6EB449E33977F0B, &START_PARTICLE_FX_LOOPED_ON_ENTITY_BONE},
+		{0x1454F2448DE30163, &SET_FAKE_WANTED_LEVEL},
+		{0x740E14FAD5842351, &SET_GRAVITY_LEVEL},
+		{0x3F892CAF67444AE7, &CREATE_INCIDENT},
+		{0x05983472F0494E60, &CREATE_INCIDENT_WITH_ENTITY},
+		{0x8DC39368BDD57755, &ATTACH_PORTABLE_PICKUP_TO_PED},
+		{0x56CEF0AC79073BDE, &SET_PED_DIES_IN_WATER},
+		{0xD718A22995E2B4BC, &SET_PED_DIES_IN_SINKING_VEHICLE},
+		{0x63F58F7C80513AAD, &SET_PED_CAN_BE_TARGETTED},
+		{0x6BA428C528D9E522, &SET_PED_MAX_TIME_UNDERWATER},
+		{0xAE99FB955581844A, &SET_PED_TO_RAGDOLL},
+		{0xD76632D99E4966C8, &SET_PED_TO_RAGDOLL_WITH_FALL},
+		{0xF0A4F1BBF4FA7497, &SET_PED_RAGDOLL_ON_COLLISION},
+		{0x01F6594B923B9251, &SET_PED_RAGDOLL_FORCE_FALL},
+		{0x5F5D1665E352A839, &ADD_PED_DECORATION_FROM_HASHES},
+		{0x5619BFA07CFD7833, &ADD_PED_DECORATION_FROM_HASHES_IN_CORONA},
+		{0x272E4723B56A3B96, &ATTACH_SYNCHRONIZED_SCENE_TO_ENTITY},
+		{0x3D95EC8B6D940AC3, &ATTACH_ENTITIES_TO_ROPE},
+		{0x4B490A6832559A65, &ATTACH_ROPE_TO_ENTITY},
+		{0x39FF19C64EF7DA5B, &SET_PLAYER_WANTED_LEVEL},
+		{0x340E61DE7F471565, &SET_PLAYER_WANTED_LEVEL_NO_DROP},
+		{0xE0A7D1E497FFCD6F, &SET_PLAYER_WANTED_LEVEL_NOW},
+		{0x6BC97F4F4BB3C04B, &_SET_PLAYER_INVINCIBLE_KEEP_RAGDOLL_ENABLED},
+		{0x5E6CC07646BBEAB8, &DISABLE_PLAYER_FIRING},
+		{0xCE07B9F7817AADA3, &SET_PLAYER_WEAPON_DAMAGE_MODIFIER},
+		{0x2D83BC011CA14A3C, &SET_PLAYER_WEAPON_DEFENSE_MODIFIER},
+		{0x4A3DC7ECCC321032, &SET_PLAYER_MELEE_WEAPON_DAMAGE_MODIFIER},
+		{0xAE540335B4ABC4E2, &SET_PLAYER_MELEE_WEAPON_DEFENSE_MODIFIER},
+		{0x504D54DF3F6F2247, &TASK_LEAVE_ANY_VEHICLE},
+		{0x176CECF6F920D707, &CLEAR_PED_SECONDARY_TASK},
+		{0xEC6A202EE4960385, &SET_VEHICLE_TYRE_BURST},
+		{0xCDE5E70C1DDB954C, &SET_VEHICLE_ALARM},
+		{0xB8FF7AB45305C345, &START_VEHICLE_ALARM},
+		{0x3750146A28097A82, &SET_VEHICLE_CAN_BE_TARGETTED},
+		{0x4C7028F78FFD3681, &SET_VEHICLE_CAN_BE_VISIBLY_DAMAGED},
+		{0x79D3B596FE44EE8B, &SET_VEHICLE_DIRT_LEVEL},
+		{0x2497C4717C8B881E, &SET_VEHICLE_ENGINE_ON},
+		{0x45F6D8EEF34ABEF1, &SET_VEHICLE_ENGINE_HEALTH},
+		{0x983765856F2564F9, &SET_VEHICLE_ENGINE_CAN_DEGRADE},
+		{0x86B4B6212CB8B627, &_SET_VEHICLE_WEAPONS_DISABLED},
+		{0xF25DF915FA38C5F3, &REMOVE_ALL_PED_WEAPONS},
+		{0x4899CB088EDF59B8, &REMOVE_WEAPON_FROM_PED},
+	};
+}

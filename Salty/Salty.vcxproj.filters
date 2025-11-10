@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="gta">
+      <UniqueIdentifier>{6178880B-CD81-887C-56FD-9E7CC205947C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="memory">
+      <UniqueIdentifier>{DEA8820D-CA4A-ADE3-B305-C1379F463434}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="menu">
+      <UniqueIdentifier>{8A78880B-F681-887C-7FFD-9E7CEB05947C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hooking">
+      <UniqueIdentifier>{b984c2d8-7f91-49ad-b5a4-d395146ef50b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\common.hpp" />
+    <ClInclude Include="src\crossmap.hpp" />
+    <ClInclude Include="src\detour_hook.hpp" />
+    <ClInclude Include="src\fiber_pool.hpp" />
+    <ClInclude Include="src\fonts.hpp" />
+    <ClInclude Include="src\gta\joaat.hpp">
+      <Filter>gta</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gta\natives.hpp">
+      <Filter>gta</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gta\script_handler.hpp">
+      <Filter>gta</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gta\script_id.hpp">
+      <Filter>gta</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gta\script_program.hpp">
+      <Filter>gta</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gta\script_thread.hpp">
+      <Filter>gta</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gta\tls_context.hpp">
+      <Filter>gta</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gta_util.hpp" />
+    <ClInclude Include="src\gui\base_tab.h">
+      <Filter>menu</Filter>
+    </ClInclude>
+    <ClInclude Include="src\invoker.hpp" />
+    <ClInclude Include="src\logger.hpp" />
+    <ClInclude Include="src\memory\fwddec.hpp">
+      <Filter>memory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\memory\handle.hpp">
+      <Filter>memory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\memory\module.hpp">
+      <Filter>memory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\memory\pattern.hpp">
+      <Filter>memory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\memory\pattern_batch.hpp">
+      <Filter>memory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\memory\range.hpp">
+      <Filter>memory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\natives.hpp" />
+    <ClInclude Include="src\renderer.hpp" />
+    <ClInclude Include="src\script.hpp" />
+    <ClInclude Include="src\script_global.hpp" />
+    <ClInclude Include="src\script_hook.hpp" />
+    <ClInclude Include="src\script_local.hpp" />
+    <ClInclude Include="src\script_mgr.hpp" />
+    <ClInclude Include="src\vmt_hook.hpp" />
+    <ClInclude Include="src\gui\misc.h">
+      <Filter>menu</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gui\features.hpp">
+      <Filter>menu</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gui\gui.hpp">
+      <Filter>menu</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gui\natives_logging.hpp">
+      <Filter>menu</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pointers.hpp">
+      <Filter>menu</Filter>
+    </ClInclude>
+    <ClInclude Include="src\function_types.hpp">
+      <Filter>menu</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hooking.hpp">
+      <Filter>menu</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gui\crash.hpp">
+      <Filter>menu</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hooking\Hooking.Invoke.h">
+      <Filter>hooking</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hooking\Hooking.Patterns.h">
+      <Filter>hooking</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hooking\HookFunction.h">
+      <Filter>hooking</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hooking\_Hooking.h">
+      <Filter>hooking</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hooking\jitasm.h">
+      <Filter>hooking</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gta\array.hpp">
+      <Filter>gta</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gta\base.hpp">
+      <Filter>gta</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gta\blip.hpp">
+      <Filter>gta</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gta\color.hpp">
+      <Filter>gta</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gta\decal_controller.hpp">
+      <Filter>gta</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gta\enums.hpp">
+      <Filter>gta</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gta\extensible.hpp">
+      <Filter>gta</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gta\fwddec.hpp">
+      <Filter>gta</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gta\matrix.hpp">
+      <Filter>gta</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gta\net_game_event.hpp">
+      <Filter>gta</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gta\net_object_mgr.hpp">
+      <Filter>gta</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gta\node_list.hpp">
+      <Filter>gta</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gta\PickupRewards.h">
+      <Filter>gta</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gta\player.hpp">
+      <Filter>gta</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gta\ref_aware.hpp">
+      <Filter>gta</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gta\replay.hpp">
+      <Filter>gta</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gta\sysMemAllocator.hpp">
+      <Filter>gta</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gta\vector.hpp">
+      <Filter>gta</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gta\Vehicles.h">
+      <Filter>gta</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gta\VehicleValues.h">
+      <Filter>gta</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gta\Weapons.h">
+      <Filter>gta</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gta\invite.hpp">
+      <Filter>gta</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gta\structs.hpp">
+      <Filter>menu</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\common.cpp" />
+    <ClCompile Include="src\detour_hook.cpp" />
+    <ClCompile Include="src\fiber_pool.cpp" />
+    <ClCompile Include="src\fonts.cpp" />
+    <ClCompile Include="src\gui\base_tab.cpp">
+      <Filter>menu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\invoker.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\memory\module.cpp">
+      <Filter>memory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\memory\pattern.cpp">
+      <Filter>memory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\memory\pattern_batch.cpp">
+      <Filter>memory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\memory\range.cpp">
+      <Filter>memory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\renderer.cpp" />
+    <ClCompile Include="src\script.cpp" />
+    <ClCompile Include="src\script_global.cpp" />
+    <ClCompile Include="src\script_hook.cpp" />
+    <ClCompile Include="src\script_local.cpp" />
+    <ClCompile Include="src\script_mgr.cpp" />
+    <ClCompile Include="src\vmt_hook.cpp" />
+    <ClCompile Include="src\gui\misc.cpp">
+      <Filter>menu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gui\features.cpp">
+      <Filter>menu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gui\gui.cpp">
+      <Filter>menu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gui\natives_logging.cpp">
+      <Filter>menu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pointers.cpp">
+      <Filter>menu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\hooking.cpp">
+      <Filter>menu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gui\crash.cpp">
+      <Filter>menu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\hooking\Hooking.Patterns.cpp">
+      <Filter>hooking</Filter>
+    </ClCompile>
+    <ClCompile Include="src\hooking\HookFunction.cpp">
+      <Filter>hooking</Filter>
+    </ClCompile>
+    <ClCompile Include="src\hooking\_Hooking.cpp">
+      <Filter>hooking</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="src\gui\protection_research.txt">
+      <Filter>menu</Filter>
+    </Text>
+  </ItemGroup>
+</Project>
